@@ -7,5 +7,6 @@
         }else{
             echo "<pre>";
             print_r($var);
+            die();
         }
     }
