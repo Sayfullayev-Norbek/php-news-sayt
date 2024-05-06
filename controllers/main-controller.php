@@ -7,4 +7,7 @@
     //  Footer ishtimoyi tarmoqlar
     $socialLinks = socialLinks();
 
+    // News bo'limi
+    $getAllNews = getAllNews();
+
     require_once "views/index.php";
