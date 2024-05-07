@@ -15,7 +15,7 @@
                                     <?=date('H:i / d.m.Y', strtotime($allNew["created_date"]))?>
                                  </span>
                                     <?php foreach ($categorys as $category): ?>
-                                        <a class="news-attributes__tag" href=""><?=$category['title']?></a>
+                                        <a class="news-attributes__tag" href="?controller=view_category&id=<?=$category['id']?>"><?=$category['title']?></a>
                                     <?php endforeach;?>
                             </div>
                             <a class="news-card__text" href="?controller=news_view&id=<?=$allNew['id']?>"><?=$allNew["title"]?></a>

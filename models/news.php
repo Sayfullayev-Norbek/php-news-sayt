@@ -24,3 +24,27 @@ function getNewsById($id){
     }
 }
 
+function getCategoryBy($id)
+{
+    global $pdo;
+    $sql = "SELECT * FROM news WHERE category_id = $id";
+    $prepare = $pdo->prepare($sql);
+    try {
+        $prepare->execute();
+        return $prepare->fetchAll(PDO::FETCH_ASSOC);
+    }catch (PDOException $e){
+        debug($e->getMessage(), 1);
+    }
+}
+function getTagById($tag_id)
+{
+    global $pdo;
+    $sql = "SELECT * FROM news WHERE category_id = $tag_id";
+    $prepare = $pdo->prepare($sql);
+    try {
+        $prepare->execute();
+        return $prepare->fetchAll(PDO::FETCH_ASSOC);
+    }catch (PDOException $e){
+        debug($e->getMessage(), 1);
+    }
+}

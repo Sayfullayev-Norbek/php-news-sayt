@@ -9,6 +9,10 @@
                 $model = getNewsById($id);
                 require_once 'views/view.php';
             break;
+            case "view_category":
+                $models = getCategoryBy($id);
+                require_once 'views/widgets/tag.php';
+            break;
         }
     }else{
         // Header qismidagi mavzular
