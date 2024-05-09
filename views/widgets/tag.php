@@ -34,7 +34,7 @@
                                         <div class="news-meta">
                                             <span><?=date('H:i | d.m.Y', strtotime($model['created_date']))?></span>
                                         </div>
-                                        <a class="small-news__title news-card__text" href="">
+                                        <a class="small-news__title news-card__text" href="?url=view_id&id=<?=$model['id']?>">
                                             <?=$model['title']?>
                                         </a>
                                     </div>
