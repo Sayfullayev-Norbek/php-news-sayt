@@ -18,11 +18,7 @@ function getNewsById($id){
     $sql = "SELECT * FROM news WHERE status = 1 and id = $id";
     $prepare = $pdo->prepare($sql);
     $prepare->execute();
-    $result = $prepare->fetch();
-
-
-    return $result;
-
+    return $prepare->fetch();
 }
 
 function update_seen_count($id)
@@ -31,7 +27,7 @@ function update_seen_count($id)
     $sql = "UPdate news Set seen_count = seen_count+1 where id = $id";
     $prepare = $pdo->prepare($sql);
     $prepare->execute();
-    return true;
+    // return true;
 }
 
 function getCategoryBy($id)
