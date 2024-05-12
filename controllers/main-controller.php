@@ -3,21 +3,13 @@
     // News Viewga o'tishda tag orqali chiqarish
     if (!empty($_GET)){
 
-        if (isset($_GET['controller']) && !empty($_GET['controller'])) {
-            $controller = $_GET['controller'];
-        } else if (isset($_GET['url']) && !empty($_GET['url'])) {
-            $controller = $_GET['url'];
-        } else {
-            $controller = null;
-        }
+
+        $controller = $_GET['controller'];
         $id = $_GET['id'];
         switch ($controller){
             case "news_view":
                 $model = getNewsById($id);
-                require_once 'views/view.php';
-            break;
-            case "view_id":
-                $model = getNewsById($id);
+                $update = update_seen_count($id);
                 require_once 'views/view.php';
             break;
             case "view_category":
