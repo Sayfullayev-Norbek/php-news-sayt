@@ -214,20 +214,24 @@
                 </div>
             </div>
         </div>
+        <?php if(!empty($getAllTags)): ?>
         <div class="aside-title">
             <h1 class="secondary-title">Taglar</h1>
         </div>
         <div class="tags">
             <div class="tags__list">
-                <?php foreach ($getAllTags as $tag): ?>
-                    <div class="tags__item">
-                        <a class="tags__link" href="?controller=view_category&id=<?=$tag['id']?>">
-                            #<?=$tag['title']?>
-                        </a>
-                    </div>
-                <?php endforeach; ?>
+
+                    <?php foreach ($getAllTags as $tag): ?>
+                        <div class="tags__item">
+                            <a class="tags__link" href="?controller=view_category&id=<?=$tag['id']?>">
+                                #<?=$tag['title']?>
+                            </a>
+                        </div>
+                    <?php endforeach; ?>
+
             </div>
         </div>
+        <?php endif; ?>
         <div style="min-height: 521.312px;">
             <div class="" style="transform: translateZ(0px);"><a class="ad ad_aside" href="https://t.me/xushnudbek" target="_blank" rel="noreferrer noopener"><img src="/assetsfront/img/inhtml/banner-side.jpg" alt="side banner"></a></div>
         </div>
