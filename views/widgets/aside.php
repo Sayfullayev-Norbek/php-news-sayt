@@ -219,23 +219,13 @@
         </div>
         <div class="tags">
             <div class="tags__list">
-                <div class="tags__item"><a class="tags__link" href="/tags/28">#San'at</a></div>
-                <div class="tags__item"><a class="tags__link" href="/tags/27">#test_tag2</a></div>
-                <div class="tags__item"><a class="tags__link" href="/tags/26">#test_tag</a></div>
-                <div class="tags__item"><a class="tags__link" href="/tags/25">#new-tag</a></div>
-                <div class="tags__item"><a class="tags__link" href="/tags/24">#test</a></div>
-                <div class="tags__item"><a class="tags__link" href="/tags/15">#hayot</a></div>
-                <div class="tags__item"><a class="tags__link" href="/tags/14">#shaxsiy fikr</a></div>
-                <div class="tags__item"><a class="tags__link" href="/tags/10">#jamiyat</a></div>
-                <div class="tags__item"><a class="tags__link" href="/tags/9">#ayollar</a></div>
-                <div class="tags__item"><a class="tags__link" href="/tags/8">#Odam</a></div>
-                <div class="tags__item"><a class="tags__link" href="/tags/7">#toshkent</a></div>
-                <div class="tags__item"><a class="tags__link" href="/tags/6">#startup</a></div>
-                <div class="tags__item"><a class="tags__link" href="/tags/5">#koronavirus</a></div>
-                <div class="tags__item"><a class="tags__link" href="/tags/4">#sport</a></div>
-                <div class="tags__item"><a class="tags__link" href="/tags/3">#ta'lim</a></div>
-                <div class="tags__item"><a class="tags__link" href="/tags/2">#OTM</a></div>
-                <div class="tags__item"><a class="tags__link" href="/tags/1">#Toshkent</a></div>
+                <?php foreach ($getAllTags as $tag): ?>
+                    <div class="tags__item">
+                        <a class="tags__link" href="?controller=view_category&id=<?=$tag['id']?>">
+                            #<?=$tag['title']?>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
         <div style="min-height: 521.312px;">

@@ -2,8 +2,6 @@
     require_once "models/main-model.php";
     // News Viewga o'tishda tag orqali chiqarish
     if (!empty($_GET)){
-
-
         $controller = $_GET['controller'];
         $id = $_GET['id'];
         switch ($controller){
@@ -20,6 +18,9 @@
     }else{
         // Header qismidagi mavzular
         $parentMenus = getParentMenus();
+
+        // Menudagilarni tag qilamiz
+        $getAllTags = getAllMenus();
 
         //  Footer ishtimoyi tarmoqlar
         $socialLinks = socialLinks();

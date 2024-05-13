@@ -28,23 +28,32 @@
                         <ul class="header__nav-list">
                             <?php if(!empty($parentMenus)): ?>
                                 <?php foreach ($parentMenus as $parentMenu): ?>
+                                    <a href="#">
                                         <?php
                                             $childMenus = getChildMenus($parentMenu['id']);
-                                            //debug($childMenus);
                                         ?>
+                                    </a>
                                         <?php if(!empty($childMenus)): ?>
                                                 <li class="header__nav-item hover-border">
-                                                    <div class="header__nav-link"><span style="white-space: nowrap;"><?=$parentMenu['title']?></span></div>
+                                                    <div class="header__nav-link">
+                                                        <span style="white-space: nowrap;">
+
+                                                                <a href="?controller=view_category&id=<?=$parentMenu['id']?>">
+                                                                    <?=$parentMenu['title']?>
+                                                                </a>
+
+                                                        </span>
+                                                    </div>
                                                     <div class="nav-dropdown">
                                                         <ul class="nav-dropdown__list">
                                                             <?php foreach ($childMenus as $childMenu): ?>
-                                                                <li class="nav-dropdown__item"><a class="nav-dropdown__link" href="/categories/sud-huquq"><?=$childMenu['title']?></a></li>
+                                                                <li class="nav-dropdown__item"><a class="nav-dropdown__link" href="?controller=view_category&id=<?=$childMenu['id']?>"><?=$childMenu['title']?></a></li>
                                                             <?php endforeach; ?>
                                                         </ul>
                                                     </div>
                                                 </li>
                                         <?php else: ?>
-                                            <li class="header__nav-item hover-border"><a class="header__nav-link" href="/pages/encyclopedia"><?=$parentMenu["title"]?></a></li>
+                                            <li class="header__nav-item hover-border"><a class="header__nav-link" href="?controller=view_category&id=<?=$parentMenu['id']?>"><?=$parentMenu["title"]?></a></li>
                                         <?php endif; ?>
                                 <?php endforeach; ?>
                             <?php endif; ?>

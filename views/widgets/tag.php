@@ -27,7 +27,7 @@
                         <?php foreach ($models as $model): ?>
                             <div class="col-md-6">
                                 <div class="small-news">
-                                    <a class="small-news__img" href="#havol">
+                                    <a class="small-news__img" href="?controller=news_view&id=<?=$model['id']?>">
                                         <img src="/upload/news/<?=$model['id']?>/<?=$model['image']?>">
                                     </a>
                                     <div class="small-news__content">
