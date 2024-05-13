@@ -1,4 +1,4 @@
-<h1 align="center">PHP </h1>
+<h1 align="center">PHPda Sayt </h1>
 
 
 Yangliklar sayti qilingan, Xushnudbek.uz sayti shablonidan foydalanilgan </br>
