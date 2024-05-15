@@ -39,3 +39,15 @@ function getSocial($id)
     }
 }
 
+function getSocialDelete($id)
+{
+    global $pdo;
+    $sql = "DELETE FROM social WHERE id = $id";
+    $prepare = $pdo->prepare($sql);
+    try {
+        $prepare->execute();
+        return true;
+    }catch (PDOException $e){
+        debug($e->getMessage(), 1);
+    }
+}

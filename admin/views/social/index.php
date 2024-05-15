@@ -49,7 +49,7 @@
                                             <td><?=$getAllLink["icon"]?></td>
                                             <td>
                                                 <button type="submit" class="btn btn-primary"><a href="?controller=new_created&id=<?=$getAllLink["id"]?>"><i class="fas fa-pen" style="color: white"></i></a></button>
-                                                <button type="submit" class="btn btn-danger"><a href="?controller=new_delete&id=<?=$getAllLink["id"]?>"><i class="fas fa-trash" style="color: white"></i></a></button>
+                                                <button type="submit" class="btn btn-danger"><a href="?controller=link_delete&id=<?=$getAllLink["id"]?>"><i class="fas fa-trash" style="color: white"></i></a></button>
                                                 <button type="submit" class="btn btn-info"><a href="?controller=link_read&id=<?=$getAllLink['id']?>"><i class="fas fa-eye" style="color: white"></i></a></button>
                                             </td>
                                         </tr>

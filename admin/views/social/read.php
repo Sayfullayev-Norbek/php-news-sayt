@@ -16,7 +16,7 @@
                                     <th scope="row"><?=$getlink['id']?></th>
                                 </tr>
                                 <tr>
-                                    <th>LInk</th>
+                                    <th>Link</th>
                                     <th scope="row"><?=$getlink['link']?></th>
                                 </tr>
                                 <tr>

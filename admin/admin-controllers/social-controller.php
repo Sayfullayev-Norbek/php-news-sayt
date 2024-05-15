@@ -18,6 +18,12 @@
                 $getlink = getSocial($id);
                 require_once "views/social/read.php";
                 break;
+            case "link_delete":
+                $getlinkDelete = getSocialDelete($id);
+                if ($getlinkDelete == true){
+                    require_once "views/social/index.php";
+                }
+                break;
         }
     }else{
         require_once "views/index.php";
