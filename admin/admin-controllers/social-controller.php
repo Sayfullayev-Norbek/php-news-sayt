@@ -24,6 +24,10 @@
                     require_once "views/social/index.php";
                 }
                 break;
+            case "link_created":
+                $getlinkCreated = getSocial($id);
+                require_once "views/social/created.php";
+                break;
         }
     }else{
         require_once "views/index.php";

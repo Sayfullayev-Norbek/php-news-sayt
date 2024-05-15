@@ -24,25 +24,16 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <form action="admin-controllers/new-controller.php" method="GET">
+                <form action="admin-controllers/social-controller.php" method="GET">
                     <div class="form">
                         <div class="col my-4 mx-5">
-                            <input type="text" name="title" class="form-control" placeholder="Title (News)">
+                            <input type="text" name="link" value="<?=$getlinkCreated['link']?>" class="form-control" placeholder="Title (News)">
                         </div>
                         <div class="col my-4 mx-5">
-                            <input type="text" name="description" class="form-control" placeholder="Description (News)">
+                            <input type="text" name="icon" value="<?=$getlinkCreated['icon']?>" class="form-control" placeholder="Description (News)">
                         </div>
                         <div class="col my-4 mx-5">
-                            <input type="text" name="body" class="form-control" placeholder="Body (News)">
-                        </div>
-                        <div class="col my-4 mx-5">
-                            <input type="number" name="category_id" class="form-control" placeholder="Category ID (News)">
-                        </div>
-                        <div class="col my-4 mx-5">
-                            <input type="text" name="image"  class="form-control" placeholder="Image (News)">
-                        </div>
-                        <div class="col my-4 mx-5">
-                            <input type="number" name="status"  class="form-control" placeholder="Status (News)">
+                            <input type="number" name="status" value="<?=$getlinkCreated['status']?>" class="form-control" placeholder="Body (News)">
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary my-4 mx-5">Yangilash</button>
