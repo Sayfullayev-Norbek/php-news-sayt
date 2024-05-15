@@ -1,4 +1,3 @@
-
 <?php
     if(!empty($_GET)){
         if (!empty($_GET['id'])) {
