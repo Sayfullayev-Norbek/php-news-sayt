@@ -579,7 +579,7 @@
 			this.focus(targetElement);
 			this.sendClick(targetElement, event);
 
-			// Select elements need the event to go through on iOS 4, otherwise the selector menu won't open.
+			// Select elements need the event to go through on iOS 4, otherwise the selector menumenu won't open.
 			// Also this breaks opening selects when VoiceOver is active on iOS6, iOS7 (and possibly others)
 			if (!deviceIsIOS || targetTagName !== 'select') {
 				this.targetElement = null;

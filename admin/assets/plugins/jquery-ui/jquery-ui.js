@@ -1,11 +1,11 @@
 /*! jQuery UI - v1.13.0 - 2021-10-07
 * http://jqueryui.com
-* Includes: widget.js, position.js, data.js, disable-selection.js, effect.js, effects/effect-blind.js, effects/effect-bounce.js, effects/effect-clip.js, effects/effect-drop.js, effects/effect-explode.js, effects/effect-fade.js, effects/effect-fold.js, effects/effect-highlight.js, effects/effect-puff.js, effects/effect-pulsate.js, effects/effect-scale.js, effects/effect-shake.js, effects/effect-size.js, effects/effect-slide.js, effects/effect-transfer.js, focusable.js, form-reset-mixin.js, jquery-patch.js, keycode.js, labels.js, scroll-parent.js, tabbable.js, unique-id.js, widgets/accordion.js, widgets/autocomplete.js, widgets/button.js, widgets/checkboxradio.js, widgets/controlgroup.js, widgets/datepicker.js, widgets/dialog.js, widgets/draggable.js, widgets/droppable.js, widgets/menu.js, widgets/mouse.js, widgets/progressbar.js, widgets/resizable.js, widgets/selectable.js, widgets/selectmenu.js, widgets/slider.js, widgets/sortable.js, widgets/spinner.js, widgets/tabs.js, widgets/tooltip.js
+* Includes: widget.js, position.js, data.js, disable-selection.js, effect.js, effects/effect-blind.js, effects/effect-bounce.js, effects/effect-clip.js, effects/effect-drop.js, effects/effect-explode.js, effects/effect-fade.js, effects/effect-fold.js, effects/effect-highlight.js, effects/effect-puff.js, effects/effect-pulsate.js, effects/effect-scale.js, effects/effect-shake.js, effects/effect-size.js, effects/effect-slide.js, effects/effect-transfer.js, focusable.js, form-reset-mixin.js, jquery-patch.js, keycode.js, labels.js, scroll-parent.js, tabbable.js, unique-id.js, widgets/accordion.js, widgets/autocomplete.js, widgets/button.js, widgets/checkboxradio.js, widgets/controlgroup.js, widgets/datepicker.js, widgets/dialog.js, widgets/draggable.js, widgets/droppable.js, widgets/menumenu.js, widgets/mouse.js, widgets/progressbar.js, widgets/resizable.js, widgets/selectable.js, widgets/selectmenu.js, widgets/slider.js, widgets/sortable.js, widgets/spinner.js, widgets/tabs.js, widgets/tooltip.js
 * Copyright jQuery Foundation and other contributors; Licensed MIT */
 
 ( function( factory ) {
 	"use strict";
-	
+
 	if ( typeof define === "function" && define.amd ) {
 
 		// AMD. Register as an anonymous module.
@@ -4982,7 +4982,7 @@ var safeActiveElement = $.ui.safeActiveElement = function( document ) {
 //>>docs: http://api.jqueryui.com/menu/
 //>>demos: http://jqueryui.com/menu/
 //>>css.structure: ../../themes/base/core.css
-//>>css.structure: ../../themes/base/menu.css
+//>>css.structure: ../../themes/base/menumenu.css
 //>>css.theme: ../../themes/base/theme.css
 
 
@@ -5025,7 +5025,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 		this._addClass( "ui-menu", "ui-widget ui-widget-content" );
 		this._on( {
 
-			// Prevent focus from sticking to links inside menu after clicking
+			// Prevent focus from sticking to links inside menumenu after clicking
 			// them (focus should always stay on UL during navigation).
 			"mousedown .ui-menu-item": function( event ) {
 				event.preventDefault();
@@ -5044,17 +5044,17 @@ var widgetsMenu = $.widget( "ui.menu", {
 					}
 
 					// Open submenu on click
-					if ( target.has( ".ui-menu" ).length ) {
+					if ( target.has( ".ui-menumenu" ).length ) {
 						this.expand( event );
 					} else if ( !this.element.is( ":focus" ) &&
-							active.closest( ".ui-menu" ).length ) {
+							active.closest( ".ui-menumenu" ).length ) {
 
-						// Redirect focus to the menu
+						// Redirect focus to the menumenu
 						this.element.trigger( "focus", [ true ] );
 
 						// If the active item is on the top level, let it stay active.
 						// Otherwise, blur the active item since it is no longer visible.
-						if ( this.active && this.active.parents( ".ui-menu" ).length === 1 ) {
+						if ( this.active && this.active.parents( ".ui-menumenu" ).length === 1 ) {
 							clearTimeout( this.timer );
 						}
 					}
@@ -5090,7 +5090,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 
 		this.refresh();
 
-		// Clicks outside of a menu collapse any open menus
+		// Clicks outside of a menumenu collapse any open menus
 		this._on( this.document, {
 			click: function( event ) {
 				if ( this._closeOnDocumentClick( event ) ) {
@@ -5107,7 +5107,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 
 		// Ignore mouse events while typeahead is active, see #10458.
 		// Prevents focusing the wrong item when typeahead causes a scroll while the mouse
-		// is over an item in the menu
+		// is over an item in the menumenu
 		if ( this.previousFilter ) {
 			return;
 		}
@@ -5123,7 +5123,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 			y: event.clientY
 		};
 
-		var actualTarget = $( event.target ).closest( ".ui-menu-item" ),
+		var actualTarget = $( event.target ).closest( ".ui-menumenu-item" ),
 			target = $( event.currentTarget );
 
 		// Ignore bubbled events on parent items, see #11641
@@ -5136,7 +5136,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 			return;
 		}
 
-		// Remove ui-state-active class from siblings of the newly focused menu item
+		// Remove ui-state-active class from siblings of the newly focused menumenu item
 		// to avoid a jump caused by adjacent elements both having a class with a border
 		this._removeClass( target.siblings().children( ".ui-state-active" ),
 			null, "ui-state-active" );
@@ -5144,16 +5144,16 @@ var widgetsMenu = $.widget( "ui.menu", {
 	},
 
 	_destroy: function() {
-		var items = this.element.find( ".ui-menu-item" )
+		var items = this.element.find( ".ui-menumenu-item" )
 				.removeAttr( "role aria-disabled" ),
-			submenus = items.children( ".ui-menu-item-wrapper" )
+			submenus = items.children( ".ui-menumenu-item-wrapper" )
 				.removeUniqueId()
 				.removeAttr( "tabIndex role aria-haspopup" );
 
 		// Destroy (sub)menus
 		this.element
 			.removeAttr( "aria-activedescendant" )
-			.find( ".ui-menu" ).addBack()
+			.find( ".ui-menumenu" ).addBack()
 				.removeAttr( "role aria-labelledby aria-expanded aria-hidden aria-disabled " +
 					"tabIndex" )
 				.removeUniqueId()
@@ -5161,7 +5161,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 
 		submenus.children().each( function() {
 			var elem = $( this );
-			if ( elem.data( "ui-menu-submenu-caret" ) ) {
+			if ( elem.data( "ui-menumenu-submenu-caret" ) ) {
 				elem.remove();
 			}
 		} );
@@ -5224,11 +5224,11 @@ var widgetsMenu = $.widget( "ui.menu", {
 
 			match = this._filterMenuItems( character );
 			match = skip && match.index( this.active.next() ) !== -1 ?
-				this.active.nextAll( ".ui-menu-item" ) :
+				this.active.nextAll( ".ui-menumenu-item" ) :
 				match;
 
 			// If no matches on the current filter, reset to the last character pressed
-			// to move down the menu to the first item that starts with that character
+			// to move down the menumenu to the first item that starts with that character
 			if ( !match.length ) {
 				character = String.fromCharCode( event.keyCode );
 				match = this._filterMenuItems( character );
@@ -5266,10 +5266,10 @@ var widgetsMenu = $.widget( "ui.menu", {
 			icon = this.options.icons.submenu,
 			submenus = this.element.find( this.options.menus );
 
-		this._toggleClass( "ui-menu-icons", null, !!this.element.find( ".ui-icon" ).length );
+		this._toggleClass( "ui-menumenu-icons", null, !!this.element.find( ".ui-icon" ).length );
 
 		// Initialize nested menus
-		newSubmenus = submenus.filter( ":not(.ui-menu)" )
+		newSubmenus = submenus.filter( ":not(.ui-menumenu)" )
 			.hide()
 			.attr( {
 				role: this.options.role,
@@ -5279,9 +5279,9 @@ var widgetsMenu = $.widget( "ui.menu", {
 			.each( function() {
 				var menu = $( this ),
 					item = menu.prev(),
-					submenuCaret = $( "<span>" ).data( "ui-menu-submenu-caret", true );
+					submenuCaret = $( "<span>" ).data( "ui-menumenu-submenu-caret", true );
 
-				that._addClass( submenuCaret, "ui-menu-icon", "ui-icon " + icon );
+				that._addClass( submenuCaret, "ui-menumenu-icon", "ui-icon " + icon );
 				item
 					.attr( "aria-haspopup", "true" )
 					.prepend( submenuCaret );
@@ -5293,30 +5293,30 @@ var widgetsMenu = $.widget( "ui.menu", {
 		menus = submenus.add( this.element );
 		items = menus.find( this.options.items );
 
-		// Initialize menu-items containing spaces and/or dashes only as dividers
-		items.not( ".ui-menu-item" ).each( function() {
+		// Initialize menumenu-items containing spaces and/or dashes only as dividers
+		items.not( ".ui-menumenu-item" ).each( function() {
 			var item = $( this );
 			if ( that._isDivider( item ) ) {
-				that._addClass( item, "ui-menu-divider", "ui-widget-content" );
+				that._addClass( item, "ui-menumenu-divider", "ui-widget-content" );
 			}
 		} );
 
 		// Don't refresh list items that are already adapted
-		newItems = items.not( ".ui-menu-item, .ui-menu-divider" );
+		newItems = items.not( ".ui-menumenu-item, .ui-menumenu-divider" );
 		newWrappers = newItems.children()
-			.not( ".ui-menu" )
+			.not( ".ui-menumenu" )
 				.uniqueId()
 				.attr( {
 					tabIndex: -1,
 					role: this._itemRole()
 				} );
-		this._addClass( newItems, "ui-menu-item" )
-			._addClass( newWrappers, "ui-menu-item-wrapper" );
+		this._addClass( newItems, "ui-menumenu-item" )
+			._addClass( newWrappers, "ui-menumenu-item-wrapper" );
 
-		// Add aria-disabled attribute to any disabled menu item
+		// Add aria-disabled attribute to any disabled menumenu item
 		items.filter( ".ui-state-disabled" ).attr( "aria-disabled", "true" );
 
-		// If the active item has been removed, blur the menu
+		// If the active item has been removed, blur the menumenu
 		if ( this.active && !$.contains( this.element[ 0 ], this.active[ 0 ] ) ) {
 			this.blur();
 		}
@@ -5331,7 +5331,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 
 	_setOption: function( key, value ) {
 		if ( key === "icons" ) {
-			var icons = this.element.find( ".ui-menu-icon" );
+			var icons = this.element.find( ".ui-menumenu-icon" );
 			this._removeClass( icons, null, this.options.icons.submenu )
 				._addClass( icons, null, value.submenu );
 		}
@@ -5353,7 +5353,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 
 		this.active = item.first();
 
-		focused = this.active.children( ".ui-menu-item-wrapper" );
+		focused = this.active.children( ".ui-menumenu-item-wrapper" );
 		this._addClass( focused, null, "ui-state-active" );
 
 		// Only update aria-activedescendant if there's a role
@@ -5362,11 +5362,11 @@ var widgetsMenu = $.widget( "ui.menu", {
 			this.element.attr( "aria-activedescendant", focused.attr( "id" ) );
 		}
 
-		// Highlight active parent menu item, if any
+		// Highlight active parent menumenu item, if any
 		activeParent = this.active
 			.parent()
-				.closest( ".ui-menu-item" )
-					.children( ".ui-menu-item-wrapper" );
+				.closest( ".ui-menumenu-item" )
+					.children( ".ui-menumenu-item-wrapper" );
 		this._addClass( activeParent, null, "ui-state-active" );
 
 		if ( event && event.type === "keydown" ) {
@@ -5377,7 +5377,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 			}, this.delay );
 		}
 
-		nested = item.children( ".ui-menu" );
+		nested = item.children( ".ui-menumenu" );
 		if ( nested.length && event && ( /^mouse/.test( event.type ) ) ) {
 			this._startOpening( nested );
 		}
@@ -5413,7 +5413,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 			return;
 		}
 
-		this._removeClass( this.active.children( ".ui-menu-item-wrapper" ),
+		this._removeClass( this.active.children( ".ui-menumenu-item-wrapper" ),
 			null, "ui-state-active" );
 
 		this._trigger( "blur", event, { item: this.active } );
@@ -5441,7 +5441,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 		}, this.options.position );
 
 		clearTimeout( this.timer );
-		this.element.find( ".ui-menu" ).not( submenu.parents( ".ui-menu" ) )
+		this.element.find( ".ui-menumenu" ).not( submenu.parents( ".ui-menumenu" ) )
 			.hide()
 			.attr( "aria-hidden", "true" );
 
@@ -5458,9 +5458,9 @@ var widgetsMenu = $.widget( "ui.menu", {
 
 			// If we were passed an event, look for the submenu that contains the event
 			var currentMenu = all ? this.element :
-				$( event && event.target ).closest( this.element.find( ".ui-menu" ) );
+				$( event && event.target ).closest( this.element.find( ".ui-menumenu" ) );
 
-			// If we found no valid submenu ancestor, use the main menu to close all
+			// If we found no valid submenu ancestor, use the main menumenu to close all
 			// sub menus anyway
 			if ( !currentMenu.length ) {
 				currentMenu = this.element;
@@ -5470,28 +5470,28 @@ var widgetsMenu = $.widget( "ui.menu", {
 
 			this.blur( event );
 
-			// Work around active item staying active after menu is blurred
+			// Work around active item staying active after menumenu is blurred
 			this._removeClass( currentMenu.find( ".ui-state-active" ), null, "ui-state-active" );
 
 			this.activeMenu = currentMenu;
 		}, all ? 0 : this.delay );
 	},
 
-	// With no arguments, closes the currently active menu - if nothing is active
+	// With no arguments, closes the currently active menumenu - if nothing is active
 	// it closes all menus.  If passed an argument, it will search for menus BELOW
 	_close: function( startMenu ) {
 		if ( !startMenu ) {
 			startMenu = this.active ? this.active.parent() : this.element;
 		}
 
-		startMenu.find( ".ui-menu" )
+		startMenu.find( ".ui-menumenu" )
 			.hide()
 			.attr( "aria-hidden", "true" )
 			.attr( "aria-expanded", "false" );
 	},
 
 	_closeOnDocumentClick: function( event ) {
-		return !$( event.target ).closest( ".ui-menu" ).length;
+		return !$( event.target ).closest( ".ui-menumenu" ).length;
 	},
 
 	_isDivider: function( item ) {
@@ -5502,7 +5502,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 
 	collapse: function( event ) {
 		var newItem = this.active &&
-			this.active.parent().closest( ".ui-menu-item", this.element );
+			this.active.parent().closest( ".ui-menumenu-item", this.element );
 		if ( newItem && newItem.length ) {
 			this._close();
 			this.focus( event, newItem );
@@ -5510,7 +5510,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 	},
 
 	expand: function( event ) {
-		var newItem = this.active && this._menuItems( this.active.children( ".ui-menu" ) ).first();
+		var newItem = this.active && this._menuItems( this.active.children( ".ui-menumenu" ) ).first();
 
 		if ( newItem && newItem.length ) {
 			this._open( newItem.parent() );
@@ -5531,17 +5531,17 @@ var widgetsMenu = $.widget( "ui.menu", {
 	},
 
 	isFirstItem: function() {
-		return this.active && !this.active.prevAll( ".ui-menu-item" ).length;
+		return this.active && !this.active.prevAll( ".ui-menumenu-item" ).length;
 	},
 
 	isLastItem: function() {
-		return this.active && !this.active.nextAll( ".ui-menu-item" ).length;
+		return this.active && !this.active.nextAll( ".ui-menumenu-item" ).length;
 	},
 
 	_menuItems: function( menu ) {
 		return ( menu || this.element )
 			.find( this.options.items )
-			.filter( ".ui-menu-item" );
+			.filter( ".ui-menumenu-item" );
 	},
 
 	_move: function( direction, filter, event ) {
@@ -5549,11 +5549,11 @@ var widgetsMenu = $.widget( "ui.menu", {
 		if ( this.active ) {
 			if ( direction === "first" || direction === "last" ) {
 				next = this.active
-					[ direction === "first" ? "prevAll" : "nextAll" ]( ".ui-menu-item" )
+					[ direction === "first" ? "prevAll" : "nextAll" ]( ".ui-menumenu-item" )
 					.last();
 			} else {
 				next = this.active
-					[ direction + "All" ]( ".ui-menu-item" )
+					[ direction + "All" ]( ".ui-menumenu-item" )
 					.first();
 			}
 		}
@@ -5583,7 +5583,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 				height += this.element[ 0 ].offsetHeight - this.element.outerHeight();
 			}
 
-			this.active.nextAll( ".ui-menu-item" ).each( function() {
+			this.active.nextAll( ".ui-menumenu-item" ).each( function() {
 				item = $( this );
 				return item.offset().top - base - height < 0;
 			} );
@@ -5613,7 +5613,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 				height += this.element[ 0 ].offsetHeight - this.element.outerHeight();
 			}
 
-			this.active.prevAll( ".ui-menu-item" ).each( function() {
+			this.active.prevAll( ".ui-menumenu-item" ).each( function() {
 				item = $( this );
 				return item.offset().top - base + height > 0;
 			} );
@@ -5632,9 +5632,9 @@ var widgetsMenu = $.widget( "ui.menu", {
 
 		// TODO: It should never be possible to not have an active item at this
 		// point, but the tests don't trigger mouseenter before click.
-		this.active = this.active || $( event.target ).closest( ".ui-menu-item" );
+		this.active = this.active || $( event.target ).closest( ".ui-menumenu-item" );
 		var ui = { item: this.active };
-		if ( !this.active.has( ".ui-menu" ).length ) {
+		if ( !this.active.has( ".ui-menumenu" ).length ) {
 			this.collapseAll( event, true );
 		}
 		this._trigger( "select", event, ui );
@@ -5648,11 +5648,11 @@ var widgetsMenu = $.widget( "ui.menu", {
 			.find( this.options.items )
 
 				// Only match on items, not dividers or other content (#10571)
-				.filter( ".ui-menu-item" )
+				.filter( ".ui-menumenu-item" )
 					.filter( function() {
 						return regex.test(
 							String.prototype.trim.call(
-								$( this ).children( ".ui-menu-item-wrapper" ).text() ) );
+								$( this ).children( ".ui-menumenu-item-wrapper" ).text() ) );
 					} );
 	}
 } );
@@ -5763,7 +5763,7 @@ $.widget( "ui.autocomplete", {
 					break;
 				case keyCode.ENTER:
 
-					// when menu is open and has focus
+					// when menumenu is open and has focus
 					if ( this.menu.active ) {
 
 						// #6055 - Opera still allows the keypress to occur
@@ -5879,7 +5879,7 @@ $.widget( "ui.autocomplete", {
 				var label, item;
 
 				// support: Firefox
-				// Prevent accidental activation of menu items in Firefox (#7024 #9118)
+				// Prevent accidental activation of menumenu items in Firefox (#7024 #9118)
 				if ( this.isNewMenu ) {
 					this.isNewMenu = false;
 					if ( event.originalEvent && /^mouse/.test( event.originalEvent.type ) ) {
@@ -5913,7 +5913,7 @@ $.widget( "ui.autocomplete", {
 				var item = ui.item.data( "ui-autocomplete-item" ),
 					previous = this.previous;
 
-				// Only trigger when focus was lost (click on menu)
+				// Only trigger when focus was lost (click on menumenu)
 				if ( this.element[ 0 ] !== $.ui.safeActiveElement( this.document[ 0 ] ) ) {
 					this.element.trigger( "focus" );
 					this.previous = previous;
@@ -6122,7 +6122,7 @@ $.widget( "ui.autocomplete", {
 
 	_close: function( event ) {
 
-		// Remove the handler that closes the menu on outside clicks
+		// Remove the handler that closes the menumenu on outside clicks
 		this._off( this.document, "mousedown" );
 
 		if ( this.menu.element.is( ":visible" ) ) {
@@ -6165,7 +6165,7 @@ $.widget( "ui.autocomplete", {
 		this.isNewMenu = true;
 		this.menu.refresh();
 
-		// Size and position menu
+		// Size and position menumenu
 		ul.show();
 		this._resizeMenu();
 		ul.position( $.extend( {
@@ -14129,7 +14129,7 @@ var widgetsSelectmenu = $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 		this.ids = {
 			element: selectmenuId,
 			button: selectmenuId + "-button",
-			menu: selectmenuId + "-menu"
+			menu: selectmenuId + "-menumenu"
 		};
 
 		this._drawButton();
@@ -14188,8 +14188,8 @@ var widgetsSelectmenu = $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 		this._on( this.button, this._buttonEvents );
 		this.button.one( "focusin", function() {
 
-			// Delay rendering the menu items until the button receives focus.
-			// The menu may have already been rendered via a programmatic open.
+			// Delay rendering the menumenu items until the button receives focus.
+			// The menumenu may have already been rendered via a programmatic open.
 			if ( !that._rendered ) {
 				that._refreshMenu();
 			}
@@ -14199,19 +14199,19 @@ var widgetsSelectmenu = $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 	_drawMenu: function() {
 		var that = this;
 
-		// Create menu
+		// Create menumenu
 		this.menu = $( "<ul>", {
 			"aria-hidden": "true",
 			"aria-labelledby": this.ids.button,
 			id: this.ids.menu
 		} );
 
-		// Wrap menu
+		// Wrap menumenu
 		this.menuWrap = $( "<div>" ).append( this.menu );
-		this._addClass( this.menuWrap, "ui-selectmenu-menu", "ui-front" );
+		this._addClass( this.menuWrap, "ui-selectmenu-menumenu", "ui-front" );
 		this.menuWrap.appendTo( this._appendTo() );
 
-		// Initialize menu widget
+		// Initialize menumenu widget
 		this.menuInstance = this.menu
 			.menu( {
 				classes: {
@@ -14246,10 +14246,10 @@ var widgetsSelectmenu = $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 			} )
 			.menu( "instance" );
 
-		// Don't close the menu on mouseleave
+		// Don't close the menumenu on mouseleave
 		this.menuInstance._off( this.menu, "mouseleave" );
 
-		// Cancel the menu's collapseAll on document click
+		// Cancel the menumenu's collapseAll on document click
 		this.menuInstance._closeOnDocumentClick = function() {
 			return false;
 		};
@@ -14286,7 +14286,7 @@ var widgetsSelectmenu = $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 		this.menuInstance.refresh();
 		this.menuItems = this.menu.find( "li" )
 			.not( ".ui-selectmenu-optgroup" )
-				.find( ".ui-menu-item-wrapper" );
+				.find( ".ui-menumenu-item-wrapper" );
 
 		this._rendered = true;
 
@@ -14296,7 +14296,7 @@ var widgetsSelectmenu = $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 
 		item = this._getSelectedItem();
 
-		// Update the menu to have the correct item focused
+		// Update the menumenu to have the correct item focused
 		this.menuInstance.focus( null, item );
 		this._setAria( item.data( "ui-selectmenu-item" ) );
 
@@ -14309,7 +14309,7 @@ var widgetsSelectmenu = $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 			return;
 		}
 
-		// If this is the first time the menu is being opened, render the items
+		// If this is the first time the menumenu is being opened, render the items
 		if ( !this._rendered ) {
 			this._refreshMenu();
 		} else {
@@ -14319,7 +14319,7 @@ var widgetsSelectmenu = $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 			this.menuInstance.focus( null, this._getSelectedItem() );
 		}
 
-		// If there are no options, don't open the menu
+		// If there are no options, don't open the menumenu
 		if ( !this.menuItems.length ) {
 			return;
 		}
@@ -14380,7 +14380,7 @@ var widgetsSelectmenu = $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 				li = $( "<li>", {
 					text: item.optgroup
 				} );
-				that._addClass( li, "ui-selectmenu-optgroup", "ui-menu-divider" +
+				that._addClass( li, "ui-selectmenu-optgroup", "ui-menumenu-divider" +
 					( item.element.parent( "optgroup" ).prop( "disabled" ) ?
 						" ui-state-disabled" :
 						"" ) );
@@ -14422,7 +14422,7 @@ var widgetsSelectmenu = $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 
 	_move: function( direction, event ) {
 		var item, next,
-			filter = ".ui-menu-item";
+			filter = ".ui-menumenu-item";
 
 		if ( this.isOpen ) {
 			item = this.menuItems.eq( this.focusIndex ).parent( "li" );
@@ -14479,7 +14479,7 @@ var widgetsSelectmenu = $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 				return;
 			}
 
-			if ( !$( event.target ).closest( ".ui-selectmenu-menu, #" +
+			if ( !$( event.target ).closest( ".ui-selectmenu-menumenu, #" +
 				$.escapeSelector( this.ids.button ) ).length ) {
 				this.close( event );
 			}

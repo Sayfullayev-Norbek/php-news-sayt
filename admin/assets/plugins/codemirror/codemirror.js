@@ -3333,7 +3333,7 @@
       cm.state.focused = true;
       addClass(cm.display.wrapper, "CodeMirror-focused");
       // This test prevents this from firing when a context
-      // menu is closed (since the input reset would kill the
+      // menumenu is closed (since the input reset would kill the
       // select-all detection hack)
       if (!cm.curOp && cm.display.selForContextMenu != cm.doc.sel) {
         cm.display.input.reset();
@@ -4461,7 +4461,7 @@
     // True when shift is held down.
     d.shift = false;
 
-    // Used to track whether anything happened since the context menu
+    // Used to track whether anything happened since the context menumenu
     // was opened.
     d.selForContextMenu = null;
 
@@ -7682,7 +7682,7 @@
 
   // CONTEXT MENU HANDLING
 
-  // To make the context menu work, we need to briefly unhide the
+  // To make the context menumenu work, we need to briefly unhide the
   // textarea (making it as unobtrusive as possible) to let the
   // right-click take effect on it.
   function onContextMenu(cm, e) {
@@ -7974,8 +7974,8 @@
       })); }
     else
       { on(d.scroller, "dblclick", function (e) { return signalDOMEvent(cm, e) || e_preventDefault(e); }); }
-    // Some browsers fire contextmenu *after* opening the menu, at
-    // which point we can't mess with it anymore. Context menu is
+    // Some browsers fire contextmenu *after* opening the menumenu, at
+    // which point we can't mess with it anymore. Context menumenu is
     // handled in onMouseDown for these browsers.
     on(d.scroller, "contextmenu", function (e) { return onContextMenu(cm, e); });
     on(d.input.getField(), "contextmenu", function (e) {
@@ -9628,7 +9628,7 @@
     display.input.focus();
     if (webkit) { window.scrollTo(null, oldScrollY); }
     display.input.reset();
-    // Adds "Select all" to context menu in FF
+    // Adds "Select all" to context menumenu in FF
     if (!cm.somethingSelected()) { te.value = input.prevInput = " "; }
     input.contextMenuPending = rehide;
     display.selForContextMenu = cm.doc.sel;
@@ -9641,7 +9641,7 @@
       if (te.selectionStart != null) {
         var selected = cm.somethingSelected();
         var extval = "\u200b" + (selected ? te.value : "");
-        te.value = "\u21da"; // Used to catch context-menu undo
+        te.value = "\u21da"; // Used to catch context-menumenu undo
         te.value = extval;
         input.prevInput = selected ? "" : "\u200b";
         te.selectionStart = 1; te.selectionEnd = extval.length;

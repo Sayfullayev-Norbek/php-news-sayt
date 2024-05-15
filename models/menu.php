@@ -14,6 +14,35 @@ function getParentMenus()
     }
 }
 
+// Menu Read
+function getMenuById($id)
+{
+    global $pdo;
+    $sql = "Select * from menu where id = $id";
+    $prepare = $pdo->prepare($sql);
+    try {
+        $prepare->execute();
+        return $prepare->fetch(PDO::FETCH_ASSOC);
+    }catch (PDOException $e){
+        debug($e->getMessage(), 1);
+    }
+}
+
+// Menu Delete
+function getMenuDelete($id)
+{
+    global $pdo;
+    $sql = "Delete from menu where id = $id";
+    $prepare = $pdo->prepare($sql);
+    try {
+        $prepare->execute();
+        return true;
+    }catch (PDOException $e){
+        debug($e->getMessage(), 1);
+    }
+}
+
+// Menu hammasi
 function getAllMenus()
 {
     global $pdo;
@@ -22,6 +51,19 @@ function getAllMenus()
     try {
         $prepare->execute();
         return $prepare->fetchAll(PDO::FETCH_ASSOC);
+    }catch (PDOException $e){
+        debug($e->getMessage(), 1);
+    }
+}
+
+function getMenuUpdateId($id)
+{
+    global $pdo;
+    $sql = "Update menu Set where id = $id";
+    $prepare = $pdo->prepare($sql);
+    try {
+        $prepare->execute();
+        return true;
     }catch (PDOException $e){
         debug($e->getMessage(), 1);
     }

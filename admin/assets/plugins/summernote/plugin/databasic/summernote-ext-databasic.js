@@ -22,7 +22,7 @@
 
     self.icon = '<i class="fa fa-object-group"></i>';
 
-    // add context menu button for dialog
+    // add context menumenu button for dialog
     context.memo('button.databasic', function() {
       return ui.button({
         contents: self.icon,

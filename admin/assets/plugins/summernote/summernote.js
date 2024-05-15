@@ -1,5 +1,5 @@
 /*!
- * 
+ *
  * Super simple WYSIWYG editor v0.8.20
  * https://summernote.org
  *
@@ -208,7 +208,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1145__;
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -222,14 +222,14 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1145__;
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -242,7 +242,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1145__;
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -254,12 +254,12 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1145__;
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -270,7 +270,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1145__;
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
@@ -7364,7 +7364,7 @@ var Buttons = /*#__PURE__*/function () {
           },
           click: function click(event) {
             event.stopPropagation();
-            var $parent = external_jQuery_default()('.' + className).find('.note-dropdown-menu');
+            var $parent = external_jQuery_default()('.' + className).find('.note-dropdown-menumenu');
             var $button = external_jQuery_default()(event.target);
             var eventName = $button.data('event');
             var value = $button.attr('data-value');
@@ -9918,7 +9918,7 @@ var HintPopover = /*#__PURE__*/function () {
       'link': 'note-icon-link',
       'unlink': 'note-icon-chain-broken',
       'magic': 'note-icon-magic',
-      'menuCheck': 'note-icon-menu-check',
+      'menuCheck': 'note-icon-menumenu-check',
       'minus': 'note-icon-minus',
       'orderedlist': 'note-icon-orderedlist',
       'pencil': 'note-icon-pencil',
@@ -10040,7 +10040,7 @@ var statusbar = renderer.create(['<output class="note-status-output" role="statu
 var airEditor = renderer.create('<div class="note-editor note-airframe"></div>');
 var airEditable = renderer.create(['<div class="note-editable" contentEditable="true" role="textbox" aria-multiline="true"></div>', '<output class="note-status-output" role="status" aria-live="polite"></output>'].join(''));
 var buttonGroup = renderer.create('<div class="note-btn-group btn-group"></div>');
-var dropdown = renderer.create('<ul class="note-dropdown-menu dropdown-menu"></ul>', function ($node, options) {
+var dropdown = renderer.create('<ul class="note-dropdown-menumenu dropdown-menumenu"></ul>', function ($node, options) {
   var markup = Array.isArray(options.items) ? options.items.map(function (item) {
     var value = typeof item === 'string' ? item : item.value || '';
     var content = options.template ? options.template(item) : item;
@@ -10062,7 +10062,7 @@ var dropdownButtonContents = function dropdownButtonContents(contents, options) 
   return contents + ' ' + icon(options.icons.caret, 'span');
 };
 
-var dropdownCheck = renderer.create('<ul class="note-dropdown-menu dropdown-menu note-check"></ul>', function ($node, options) {
+var dropdownCheck = renderer.create('<ul class="note-dropdown-menumenu dropdown-menumenu note-check"></ul>', function ($node, options) {
   var markup = Array.isArray(options.items) ? options.items.map(function (item) {
     var value = typeof item === 'string' ? item : item.value || '';
     var content = options.template ? options.template(item) : item;

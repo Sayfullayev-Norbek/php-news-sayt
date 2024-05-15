@@ -4145,7 +4145,7 @@
   var CLASS_NAME_DROPUP = 'dropup';
   var CLASS_NAME_DROPRIGHT = 'dropright';
   var CLASS_NAME_DROPLEFT = 'dropleft';
-  var CLASS_NAME_MENURIGHT = 'dropdown-menu-right';
+  var CLASS_NAME_MENURIGHT = 'dropdown-menumenu-right';
   var CLASS_NAME_POSITION_STATIC = 'position-static';
   var EVENT_HIDE$3 = "hide" + EVENT_KEY$6;
   var EVENT_HIDDEN$3 = "hidden" + EVENT_KEY$6;
@@ -4157,9 +4157,9 @@
   var EVENT_KEYUP_DATA_API = "keyup" + EVENT_KEY$6 + DATA_API_KEY$3;
   var SELECTOR_DATA_TOGGLE$2 = '[data-toggle="dropdown"]';
   var SELECTOR_FORM_CHILD = '.dropdown form';
-  var SELECTOR_MENU = '.dropdown-menu';
+  var SELECTOR_MENU = '.dropdown-menumenu';
   var SELECTOR_NAVBAR_NAV = '.navbar-nav';
-  var SELECTOR_VISIBLE_ITEMS = '.dropdown-menu .dropdown-item:not(.disabled):not(:disabled)';
+  var SELECTOR_VISIBLE_ITEMS = '.dropdown-menumenu .dropdown-item:not(.disabled):not(:disabled)';
   var PLACEMENT_TOP = 'top-start';
   var PLACEMENT_TOPEND = 'top-end';
   var PLACEMENT_BOTTOM = 'bottom-start';
@@ -4257,7 +4257,7 @@
             referenceElement = this._config.reference[0];
           }
         } // If boundary is not `scrollParent`, then set position to `static`
-        // to allow the menu to "escape" the scroll parent's boundaries
+        // to allow the menumenu to "escape" the scroll parent's boundaries
         // https://github.com/twbs/bootstrap/issues/24251
 
 
@@ -4520,7 +4520,7 @@
       //  - If space key => not a dropdown command
       //  - If key is other than escape
       //    - If key is not up or down => not a dropdown command
-      //    - If trigger inside the menu => not a dropdown command
+      //    - If trigger inside the menumenu => not a dropdown command
       if (/input|textarea/i.test(event.target.tagName) ? event.which === SPACE_KEYCODE || event.which !== ESCAPE_KEYCODE$1 && (event.which !== ARROW_DOWN_KEYCODE && event.which !== ARROW_UP_KEYCODE || $__default["default"](event.target).closest(SELECTOR_MENU).length) : !REGEXP_KEYDOWN.test(event.which)) {
         return;
       }
@@ -6527,7 +6527,7 @@
   var EVENT_KEY$1 = "." + DATA_KEY$1;
   var DATA_API_KEY = '.data-api';
   var JQUERY_NO_CONFLICT$1 = $__default["default"].fn[NAME$1];
-  var CLASS_NAME_DROPDOWN_MENU = 'dropdown-menu';
+  var CLASS_NAME_DROPDOWN_MENU = 'dropdown-menumenu';
   var CLASS_NAME_ACTIVE = 'active';
   var CLASS_NAME_DISABLED = 'disabled';
   var CLASS_NAME_FADE$1 = 'fade';
@@ -6543,7 +6543,7 @@
   var SELECTOR_ACTIVE_UL = '> li > .active';
   var SELECTOR_DATA_TOGGLE = '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]';
   var SELECTOR_DROPDOWN_TOGGLE = '.dropdown-toggle';
-  var SELECTOR_DROPDOWN_ACTIVE_CHILD = '> .dropdown-menu .active';
+  var SELECTOR_DROPDOWN_ACTIVE_CHILD = '> .dropdown-menumenu .active';
   /**
    * Class definition
    */

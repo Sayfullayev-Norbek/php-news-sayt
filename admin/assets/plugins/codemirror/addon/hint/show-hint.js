@@ -270,7 +270,7 @@
     hints.style.left = (left - offsetLeft) + "px";
     hints.style.top = (top - offsetTop) + "px";
 
-    // If we're at the edge of the screen, then we want the menu to appear on the left of the cursor.
+    // If we're at the edge of the screen, then we want the menumenu to appear on the left of the cursor.
     var winW = parentWindow.innerWidth || Math.max(ownerDocument.body.offsetWidth, ownerDocument.documentElement.offsetWidth);
     var winH = parentWindow.innerHeight || Math.max(ownerDocument.body.offsetHeight, ownerDocument.documentElement.offsetHeight);
     container.appendChild(hints);

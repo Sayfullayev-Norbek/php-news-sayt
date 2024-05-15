@@ -27,7 +27,7 @@ function update_seen_count($id)
     $sql = "UPdate news Set seen_count = seen_count+1 where id = $id";
     $prepare = $pdo->prepare($sql);
     $prepare->execute();
-    // return true;
+    return true;
 }
 
 function getCategoryBy($id)

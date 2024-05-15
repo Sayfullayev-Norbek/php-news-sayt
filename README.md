@@ -5,7 +5,7 @@ Yangliklar sayti qilingan, Xushnudbek.uz sayti shablonidan foydalanilgan, Admin 
 
 
 <h2 align="center">Foydalanilgan texnalogiyalar</h2>
-HTML, CSS, PHP, MYSQL, JAVASCRIPT, va boshqalar
+HTML, CSS, BOOTSTRAP, PHP, MYSQL, va boshqalar
 
 <h3>Open Server</h3>
 

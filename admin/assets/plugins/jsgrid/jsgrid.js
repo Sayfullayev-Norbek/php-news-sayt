@@ -1020,7 +1020,7 @@
 
             var controller = this._controller;
             if(!controller || !controller[method]) {
-                throw Error("controller has no method '" + method + "'");
+                throw Error("admin-controllers has no method '" + method + "'");
             }
 
             return normalizePromise(controller[method](param))

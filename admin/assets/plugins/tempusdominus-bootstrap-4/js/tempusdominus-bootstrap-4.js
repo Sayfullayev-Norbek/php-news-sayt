@@ -2236,14 +2236,14 @@ var TempusDominusBootstrap4 = function ($) {
     };
 
     _proto2._getTemplate = function _getTemplate() {
-      var template = $('<div>').addClass(("bootstrap-datetimepicker-widget dropdown-menu " + (this._options.calendarWeeks ? 'tempusdominus-bootstrap-datetimepicker-widget-with-calendar-weeks' : '') + " " + ((this._useFeatherIcons() ? 'tempusdominus-bootstrap-datetimepicker-widget-with-feather-icons' : '') + " ")).trim()),
+      var template = $('<div>').addClass(("bootstrap-datetimepicker-widget dropdown-menumenu " + (this._options.calendarWeeks ? 'tempusdominus-bootstrap-datetimepicker-widget-with-calendar-weeks' : '') + " " + ((this._useFeatherIcons() ? 'tempusdominus-bootstrap-datetimepicker-widget-with-feather-icons' : '') + " ")).trim()),
           dateView = $('<div>').addClass('datepicker').append(this._getDatePickerTemplate()),
           timeView = $('<div>').addClass('timepicker').append(this._getTimePickerTemplate()),
           content = $('<ul>').addClass('list-unstyled'),
           toolbar = $('<li>').addClass(("picker-switch" + (this._options.collapse ? ' accordion-toggle' : '') + " " + ("" + (this._useFeatherIcons() ? 'picker-switch-with-feathers-icons' : ''))).trim()).append(this._getToolbar());
 
       if (this._options.inline) {
-        template.removeClass('dropdown-menu');
+        template.removeClass('dropdown-menumenu');
       }
 
       if (this.use24Hours) {

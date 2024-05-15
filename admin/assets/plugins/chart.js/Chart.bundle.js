@@ -1532,7 +1532,7 @@ function getAlpha(string) {
 // generators
 function hexString(rgba, a) {
    var a = (a !== undefined && rgba.length === 3) ? a : rgba[3];
-   return "#" + hexDouble(rgba[0]) 
+   return "#" + hexDouble(rgba[0])
               + hexDouble(rgba[1])
               + hexDouble(rgba[2])
               + (
@@ -3632,7 +3632,7 @@ function unlistenArrayEvents(array, listener) {
 	delete array._chartjs;
 }
 
-// Base class for all dataset controllers (line, bar, etc)
+// Base class for all dataset admin-controllers (line, bar, etc)
 var DatasetController = function(chart, datasetIndex) {
 	this.initialize(chart, datasetIndex);
 };
@@ -3653,7 +3653,7 @@ helpers$1.extend(DatasetController.prototype, {
 
 	/**
 	 * Dataset element option keys to be resolved in _resolveDatasetElementOptions.
-	 * A derived controller may override this to resolve controller-specific options.
+	 * A derived admin-controllers may override this to resolve admin-controllers-specific options.
 	 * The keys defined here are for backward compatibility for legend styles.
 	 * @private
 	 */
@@ -3669,7 +3669,7 @@ helpers$1.extend(DatasetController.prototype, {
 
 	/**
 	 * Data element option keys to be resolved in _resolveDataElementOptions.
-	 * A derived controller may override this to resolve controller-specific options.
+	 * A derived admin-controllers may override this to resolve admin-controllers-specific options.
 	 * The keys defined here are for backward compatibility for legend styles.
 	 * @private
 	 */
@@ -6687,12 +6687,12 @@ core_defaults._set('global', {
 	}
 });
 
-// Scatter charts use line controllers
+// Scatter charts use line admin-controllers
 var controller_scatter = controller_line;
 
-// NOTE export a map in which the key represents the controller type, not
+// NOTE export a map in which the key represents the admin-controllers type, not
 // the class, and so must be CamelCase in order to be correctly retrieved
-// by the controller in core.controller.js (`controllers[meta.type]`).
+// by the admin-controllers in core.admin-controllers.js (`admin-controllers[meta.type]`).
 
 var controllers = {
 	bar: controller_bar,
@@ -7457,7 +7457,7 @@ function readUsedSize(element, property) {
 
 /**
  * Initializes the canvas style and render size without modifying the canvas display size,
- * since responsiveness is handled by the controller.resize() method. The config is used
+ * since responsiveness is handled by the admin-controllers.resize() method. The config is used
  * to determine the aspect ratio to apply in case no explicit height has been specified.
  */
 function initCanvas(canvas, config) {
@@ -9350,7 +9350,7 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 		 * @private
 		 */
 		me.chart = me;
-		me.controller = me; // chart.chart.controller #inception
+		me.controller = me; // chart.chart.admin-controllers #inception
 
 		// Add the chart instance to the global namespace
 		Chart.instances[me.id] = me;
@@ -9367,7 +9367,7 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 
 		if (!context || !canvas) {
 			// The given item is not a compatible context2d element, let's return before finalizing
-			// the chart initialization but after setting basic chart / controller properties that
+			// the chart initialization but after setting basic chart / admin-controllers properties that
 			// can help to figure out that the chart is not valid (e.g chart.canvas !== null);
 			// https://github.com/chartjs/Chart.js/issues/2807
 			console.error("Failed to create chart: can't acquire context from the given item");
@@ -9643,17 +9643,17 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 		// In case the entire data object changed
 		me.tooltip._data = me.data;
 
-		// Make sure dataset controllers are updated and new controllers are reset
+		// Make sure dataset admin-controllers are updated and new admin-controllers are reset
 		var newControllers = me.buildOrUpdateControllers();
 
-		// Make sure all dataset controllers have correct meta data counts
+		// Make sure all dataset admin-controllers have correct meta data counts
 		for (i = 0, ilen = me.data.datasets.length; i < ilen; i++) {
 			me.getDatasetMeta(i).controller.buildOrUpdateElements();
 		}
 
 		me.updateLayout();
 
-		// Can only reset the new controllers after the scales have been updated
+		// Can only reset the new admin-controllers after the scales have been updated
 		if (me.options.animation && me.options.animation.duration) {
 			helpers$1.each(newControllers, function(controller) {
 				controller.reset();
@@ -10062,7 +10062,7 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 
 		me.stop();
 
-		// dataset controllers need to cleanup associated data
+		// dataset admin-controllers need to cleanup associated data
 		for (i = 0, ilen = me.data.datasets.length; i < ilen; ++i) {
 			me.destroyDatasetMeta(i);
 		}
@@ -11561,7 +11561,7 @@ var Scale = core_element.extend({
 		samplingEnabled = sampleSize < ticks.length;
 		labels = me._convertTicksToLabels(samplingEnabled ? sample(ticks, sampleSize) : ticks);
 
-		// _configure is called twice, once here, once from core.controller.updateLayout.
+		// _configure is called twice, once here, once from core.admin-controllers.updateLayout.
 		// Here we haven't been positioned yet, but dimensions are correct.
 		// Variables set in _configure are needed for calculateTickRotation, and
 		// it's ok that coordinates are not correct there, only dimensions matter.
@@ -19481,7 +19481,7 @@ function computeLinearBoundary(source) {
 
 	// Backward compatibility: until v3, we still need to support boundary values set on
 	// the model (scaleTop, scaleBottom and scaleZero) because some external plugins and
-	// controllers might still use it (e.g. the Smith chart).
+	// admin-controllers might still use it (e.g. the Smith chart).
 
 	if (fill === 'start') {
 		target = model.scaleBottom === undefined ? scale.bottom : model.scaleBottom;
@@ -19765,7 +19765,7 @@ core_defaults._set('global', {
 			var ci = this.chart;
 			var meta = ci.getDatasetMeta(index);
 
-			// See controller.isDatasetVisible comment
+			// See admin-controllers.isDatasetVisible comment
 			meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
 
 			// We hid a dataset ... rerender the chart
