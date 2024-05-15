@@ -27,22 +27,22 @@
                 <form action="admin-controllers/admin-controller.php" method="GET">
                     <div class="form">
                         <div class="col my-4 mx-5">
-                            <input type="text" name="title" class="form-control" placeholder="Title (Menu)">
+                            <input type="text" name="title" value="<?=$getMenuById['title']?>" class="form-control" placeholder="Title (Menu)">
                         </div>
                         <div class="col my-4 mx-5">
-                            <input type="number" name="parent_id" class="form-control" placeholder="Parent ID (Menu)">
+                            <input type="number" name="parent_id" value="<?=$getMenuById['parent_id']?>" class="form-control" placeholder="Parent ID (Menu)">
                         </div>
                         <div class="col my-4 mx-5">
-                            <input type="number" name="order_by" class="form-control" placeholder="Order_by (Menu)">
+                            <input type="number" name="order_by" value="<?=$getMenuById['order_by']?>" class="form-control" placeholder="Order_by (Menu)">
                         </div>
                         <div class="col my-4 mx-5">
-                            <input type="number" name="position" class="form-control" placeholder="Position (Menu)">
+                            <input type="number" name="position" value="<?=$getMenuById['position']?>" class="form-control" placeholder="Position (Menu)">
                         </div>
                         <div class="col my-4 mx-5">
-                            <input type="number" name="status"  class="form-control" placeholder="Status (Menu)">
+                            <input type="number" name="status" value="<?=$getMenuById['status']?>"  class="form-control" placeholder="Status (Menu)">
                         </div>
                     </div>
-                    <button type="submit" name="submit" class="btn btn-primary my-4 mx-5">Sign in</button>
+                    <button type="submit" name="submit" class="btn btn-primary my-4 mx-5">Yangilash</button>
                 </form>
 
             </div>

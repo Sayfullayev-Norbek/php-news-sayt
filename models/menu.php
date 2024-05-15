@@ -32,7 +32,7 @@ function getMenuById($id)
 function getMenuDelete($id)
 {
     global $pdo;
-    $sql = "Delete from menu where id = $id";
+    $sql = "Delete FROM menu where id = $id";
     $prepare = $pdo->prepare($sql);
     try {
         $prepare->execute();
@@ -56,18 +56,18 @@ function getAllMenus()
     }
 }
 
-function getMenuUpdateId($id)
-{
-    global $pdo;
-    $sql = "Update menu Set where id = $id";
-    $prepare = $pdo->prepare($sql);
-    try {
-        $prepare->execute();
-        return true;
-    }catch (PDOException $e){
-        debug($e->getMessage(), 1);
-    }
-}
+//function getMenuUpdate($id)
+//{
+//    global $pdo;
+//    $sql = 'Update menu Set id = :id';
+//    $prepare = $pdo->prepare($sql);
+//    try {
+//        $prepare->execute(['id'=>$id]);
+//        return true;
+//    }catch (PDOException $e){
+//        debug($e->getMessage(), 1);
+//    }
+//}
 
 function getChildMenus($parent_id)
 {

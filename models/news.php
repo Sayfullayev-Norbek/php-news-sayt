@@ -24,7 +24,7 @@ function getNewsById($id){
 function update_seen_count($id)
 {
     global $pdo;
-    $sql = "UPdate news Set seen_count = seen_count+1 where id = $id";
+    $sql = "Update news Set seen_count = seen_count+1 where id = $id";
     $prepare = $pdo->prepare($sql);
     $prepare->execute();
     return true;

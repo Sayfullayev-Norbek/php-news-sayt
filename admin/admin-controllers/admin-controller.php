@@ -25,16 +25,17 @@
                     require_once 'views/menumenu/read.php';
                 }
             break;
-            case "menu_update":
-                $getMenuUpdateId = getMenuUpdateId($id);
-                require_once 'views/menumenu/update';
-            break;
+//            case "menu_update":
+//                $getMenuById = getMenuById($id);
+//
+//                require_once 'views/menumenu/update';
+//            break;
             case "created":
                 require_once "views/menumenu/index.php";
             break;
         }
     }else{
-        require_once 'admin/views/index.php';
+        require_once 'views/index.php';
     }
 ?>
 
