@@ -25,3 +25,17 @@ function getAllSocial()
         debug($e->getMessage(), 1);
     }
 }
+
+function getSocial($id)
+{
+    global $pdo;
+    $sql = "SELECT * FROM social WHERE id = $id";
+    $prepare = $pdo->prepare($sql);
+    try {
+        $prepare->execute();
+        return $prepare->fetch(PDO::FETCH_ASSOC);
+    }catch (PDOException $e){
+        debug($e->getMessage(), 1);
+    }
+}
+
