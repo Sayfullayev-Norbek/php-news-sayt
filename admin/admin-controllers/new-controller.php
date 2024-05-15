@@ -16,6 +16,9 @@
                     require_once "views/news/index.php";
                 }
                 break;
+            case "new_read":
+                $getNewId = getNewId($id);
+                require_once "views/news/read.php";
         }
     }else{
         require_once "views/index.php";

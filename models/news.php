@@ -25,6 +25,19 @@ function getNews()
     }
 }
 
+function getNewId($id)
+{
+    global $pdo;
+    $sql = "SELECT * FROM news WHERE id = $id";
+    $prepare = $pdo->prepare($sql);
+    try {
+        $prepare->execute();
+        return $prepare->fetch(PDO::FETCH_ASSOC);
+    }catch (PDOException $e){
+        debug($e->getMessage(), 1);
+    }
+}
+
 function getNewsById($id){
     global $pdo;
     // id dagi ma'lumotlarni olib kelamiz
