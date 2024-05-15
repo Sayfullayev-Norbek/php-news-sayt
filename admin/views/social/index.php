@@ -26,9 +26,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-body row">
+                        <div class="card-body">
                             <div class="create-btn d-flex justify-content-end my-4">
-                                <a href="?controller=created" class="btn btn-warning">Qo'shish</a>
+                                <a href="?controller=social_created" class="btn btn-warning">Qo'shish</a>
                             </div>
                             <table class="table table-bordered">
                                 <thead>
@@ -48,7 +48,7 @@
                                             <td class="col-7"><?=$getAllLink["link"]?></td>
                                             <td><?=$getAllLink["icon"]?></td>
                                             <td>
-                                                <button type="submit" class="btn btn-primary"><a href="?controller=link_created&id=<?=$getAllLink["id"]?>"><i class="fas fa-pen" style="color: white"></i></a></button>
+                                                <button type="submit" class="btn btn-primary"><a href="?controller=link_update&id=<?=$getAllLink["id"]?>"><i class="fas fa-pen" style="color: white"></i></a></button>
                                                 <button type="submit" class="btn btn-danger"><a href="?controller=link_delete&id=<?=$getAllLink["id"]?>"><i class="fas fa-trash" style="color: white"></i></a></button>
                                                 <button type="submit" class="btn btn-info"><a href="?controller=link_read&id=<?=$getAllLink['id']?>"><i class="fas fa-eye" style="color: white"></i></a></button>
                                             </td>

@@ -24,8 +24,11 @@
                     require_once "views/social/index.php";
                 }
                 break;
-            case "link_created":
-                $getlinkCreated = getSocial($id);
+            case "link_update":
+                $getlinkUpdate = getSocial($id);
+                require_once "views/social/updated.php";
+                break;
+            case "social_created":
                 require_once "views/social/created.php";
                 break;
         }

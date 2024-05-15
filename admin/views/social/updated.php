@@ -27,13 +27,13 @@
                 <form action="admin-controllers/social-controller.php" method="GET">
                     <div class="form">
                         <div class="col my-4 mx-5">
-                            <input type="text" name="link" class="form-control" placeholder="Link (Social)">
+                            <input type="text" name="link" value="<?=$getlinkUpdate['link']?>" class="form-control" placeholder="Title (News)">
                         </div>
                         <div class="col my-4 mx-5">
-                            <input type="text" name="icon" class="form-control" placeholder="Icon (Social)">
+                            <input type="text" name="icon" value="<?=$getlinkUpdate['icon']?>" class="form-control" placeholder="Description (News)">
                         </div>
                         <div class="col my-4 mx-5">
-                            <input type="number" name="status" class="form-control" placeholder="Status (Social)">
+                            <input type="number" name="status" value="<?=$getlinkUpdate['status']?>" class="form-control" placeholder="Body (News)">
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary my-4 mx-5">Yangilash</button>

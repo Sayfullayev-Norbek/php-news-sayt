@@ -21,7 +21,7 @@
                 break;
             case "new_update":
                 $getNewId = getNewId($id);
-                require_once "views/news/update.php";
+                require_once "views/news/updated.php";
                 break;
             case "new_delete":
                 $getNewDelete = getNewDelete($id);
@@ -29,7 +29,7 @@
                     require_once "views/news/index.php";
                 }
                 break;
-            case "created":
+            case "news_created":
                 require_once "views/news/created.php";
                 break;
         }

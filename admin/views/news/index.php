@@ -26,9 +26,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-body row">
+                        <div class="card-body">
                             <div class="create-btn d-flex justify-content-end my-4">
-                                <a href="?controller=created" class="btn btn-warning">Qo'shish</a>
+                                <a href="?controller=news_created" class="btn btn-warning">Qo'shish</a>
                             </div>
                             <table class="table table-bordered">
                                 <thead>

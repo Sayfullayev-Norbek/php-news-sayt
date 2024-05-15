@@ -32,10 +32,10 @@
                 $getMenuById = getMenuById($id);
 
                 if (!empty($getMenuById)){
-                    require_once 'views/menumenu/update.php';
+                    require_once 'views/menumenu/updated.php';
                 }
                 break;
-            case "created":
+            case "menu_created":
                 require_once "views/menumenu/index.php";
                 break;
         }
