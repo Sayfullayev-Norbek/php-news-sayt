@@ -56,18 +56,18 @@ function getAllMenus()
     }
 }
 
-//function getMenuUpdate($id)
-//{
-//    global $pdo;
-//    $sql = 'Update menu Set id = :id';
-//    $prepare = $pdo->prepare($sql);
-//    try {
-//        $prepare->execute(['id'=>$id]);
-//        return true;
-//    }catch (PDOException $e){
-//        debug($e->getMessage(), 1);
-//    }
-//}
+function getMenuUpdate($id)
+{
+    global $pdo;
+    $sql = 'Update menu Set id = :id';
+    $prepare = $pdo->prepare($sql);
+    try {
+        $prepare->execute(['id'=>$id]);
+        return true;
+    }catch (PDOException $e){
+        debug($e->getMessage(), 1);
+    }
+}
 
 function getChildMenus($parent_id)
 {

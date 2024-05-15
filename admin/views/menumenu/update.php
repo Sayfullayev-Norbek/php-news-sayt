@@ -42,7 +42,7 @@
                             <input type="number" name="status" value="<?=$getMenuById['status']?>"  class="form-control" placeholder="Status (Menu)">
                         </div>
                     </div>
-                    <button type="submit" name="submit" class="btn btn-primary my-4 mx-5">Yangilash</button>
+                    <button type="submit" class="btn btn-primary my-4 mx-5">Yangilash</button>
                 </form>
 
             </div>
