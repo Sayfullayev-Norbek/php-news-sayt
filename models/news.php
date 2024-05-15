@@ -38,6 +38,19 @@ function getNewId($id)
     }
 }
 
+function getNewDelete($id)
+{
+    global $pdo;
+    $sql = "Delete FROM news where id = $id";
+    $prepare = $pdo->prepare($sql);
+    try {
+        $prepare->execute();
+        return true;
+    }catch (PDOException $e){
+        debug($e->getMessage(), 1);
+    }
+}
+
 function getNewsById($id){
     global $pdo;
     // id dagi ma'lumotlarni olib kelamiz

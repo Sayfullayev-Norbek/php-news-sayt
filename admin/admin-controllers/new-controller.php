@@ -24,6 +24,15 @@
                 $getNewId = getNewId($id);
                 require_once "views/news/update.php";
                 break;
+            case "new_delete":
+                $getNewDelete = getNewDelete($id);
+                if ($getNewDelete == true){
+                    require_once "views/news/index.php";
+                }
+                break;
+            case "created":
+                require_once "views/news/created.php";
+                break;
         }
     }else{
         require_once "views/index.php";
