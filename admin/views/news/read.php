@@ -55,7 +55,7 @@
                             </table>
                             <div class="mt-4">
                                 <ol class="breadcrumb float-sm-right">
-                                    <a href="?controller=new_index" class="btn btn-warning">Menu</a>
+                                    <a href="?controller=new_index" class="btn btn-warning">News</a>
                                 </ol>
                             </div>
                         </div>

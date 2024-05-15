@@ -52,8 +52,8 @@
                                             <td><?=$getNew["seen_count"]?></td>
                                             <td><?=$getNew["category_id"]?></td>
                                             <td>
-                                                <button type="submit" class="btn btn-primary"><a href="?controller=menu_update&id=<?=$getNew["id"]?>"><i class="fas fa-pen" style="color: white"></i></a></button>
-                                                <button type="submit" class="btn btn-danger"><a href="?controller=menu_delete&id=<?=$getNew["id"]?>"><i class="fas fa-trash" style="color: white"></i></a></button>
+                                                <button type="submit" class="btn btn-primary"><a href="?controller=new_update&id=<?=$getNew["id"]?>"><i class="fas fa-pen" style="color: white"></i></a></button>
+                                                <button type="submit" class="btn btn-danger"><a href="?controller=new_delete&id=<?=$getNew["id"]?>"><i class="fas fa-trash" style="color: white"></i></a></button>
                                                 <button type="submit" class="btn btn-info"><a href="?controller=new_read&id=<?=$getNew['id']?>"><i class="fas fa-eye" style="color: white"></i></a></button>
                                             </td>
                                         </tr>
