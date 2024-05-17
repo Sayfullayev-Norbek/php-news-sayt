@@ -29,7 +29,6 @@
                     $image = !empty($_POST['image']) ? $_POST['image'] : '';
                     $status = !empty($_POST['status']) ? $_POST['status'] : '';
                     $getNewUpdate = getNewUpdated($id, $title, $description, $body, $category_id, $image, $status);
-
                     if($getNewUpdate == true){
                         header("Location: ?controller=new_index");
                     }

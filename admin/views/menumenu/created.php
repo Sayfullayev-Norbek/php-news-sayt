@@ -24,7 +24,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <form action="admin-controllers/menu-controller.php" method="GET">
+                <form action="?controller=menu_created" method="POST">
                     <div class="form">
                         <div class="col my-4 mx-5">
                             <input type="text" name="title" class="form-control" placeholder="Title (Menu)">
@@ -42,7 +42,7 @@
                             <input type="number" name="status"  class="form-control" placeholder="Status (Menu)">
                         </div>
                     </div>
-                    <button type="submit" name="submit" class="btn btn-primary my-4 mx-5">Sign in</button>
+                    <button type="submit" class="btn btn-primary my-4 mx-5">Yuborish</button>
                 </form>
 
             </div>

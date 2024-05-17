@@ -75,6 +75,25 @@ function getMenuUpdate($id, $title, $parent_id, $order_by, $position, $status)
     }
 }
 
+function getMenuCreated($title, $parent_id, $order_by, $position, $status)
+{
+    global $pdo;
+    $sql = "INSERT INTO menu (title, parent_id, order_by, position, status ) VALUES (:title, :parent_id, :order_by, :position, :status)";
+    $prepare = $pdo->prepare($sql);
+
+    $prepare->bindParam(':title', $title, PDO::PARAM_STR);
+    $prepare->bindParam(':parent_id', $parent_id, PDO::PARAM_INT);
+    $prepare->bindParam(':order_by', $order_by, PDO::PARAM_INT);
+    $prepare->bindParam(':position', $position, PDO::PARAM_INT);
+    $prepare->bindParam(':status', $status, PDO::PARAM_INT);
+    try {
+        $prepare->execute();
+        return true;
+    } catch (PDOException $e){
+        debug($e->getMessage(), 1);
+    }
+}
+
 function getChildMenus($parent_id)
 {
     global $pdo;
