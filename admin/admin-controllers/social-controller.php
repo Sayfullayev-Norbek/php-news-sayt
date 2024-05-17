@@ -21,7 +21,7 @@
             case "link_delete":
                 $getlinkDelete = getSocialDelete($id);
                 if ($getlinkDelete == true){
-                    require_once "views/social/index.php";
+                    header("Location:?controller=link_index");exit();
                 }
                 break;
             case "link_update":
