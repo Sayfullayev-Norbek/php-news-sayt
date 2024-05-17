@@ -48,6 +48,15 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="?controller=category_index" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Category
+                            <span class="right badge badge-danger">CRUD</span>
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item menu-open">
                     <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>

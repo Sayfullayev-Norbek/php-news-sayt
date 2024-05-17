@@ -30,7 +30,7 @@
                 break;
             case "menu_update":
                 $getMenuById = getMenuById($id);
-
+                $getMenuUpdate = getMenuUpdate($id);
                 if (!empty($getMenuById)){
                     require_once 'views/menumenu/updated.php';
                 }

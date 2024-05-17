@@ -24,7 +24,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <form action="admin-controllers/social-controller.php" method="GET">
+                <form action="?controller=link_update&id=<?=$getlinkUpdate['id']?>" method="POST">
                     <div class="form">
                         <div class="col my-4 mx-5">
                             <input type="text" name="link" value="<?=$getlinkUpdate['link']?>" class="form-control" placeholder="Title (News)">

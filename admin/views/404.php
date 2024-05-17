@@ -23,23 +23,8 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <div class="row">
-                <form action="?controller=social_created" method="POST">
-                    <div class="form">
-                        <div class="col my-4 mx-5">
-                            <input type="text" name="link" class="form-control" placeholder="Link (Social)">
-                        </div>
-                        <div class="col my-4 mx-5">
-                            <input type="text" name="icon" class="form-control" placeholder="Icon (class) (Social)">
-                        </div>
-                        <div class="col my-4 mx-5">
-                            <input type="number" name="status" class="form-control" placeholder="Status = 0,1 (Social)">
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary my-4 mx-5">Yangilash</button>
-                </form>
-
-            </div>
+            <div class="alert alert-danger">Bu sahifa topilmadi. <br> 404 ERROR!</div>
+            <a href="/admin" class="btn btn-primary"> Bosh sahifa </a>
         </div><!--/. container-fluid -->
     </section>
     <!-- /.content -->

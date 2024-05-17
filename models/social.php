@@ -39,6 +39,24 @@ function getSocial($id)
     }
 }
 
+function socialCreated($link, $icon, $status)
+{
+    global $pdo;
+    $sql = "INSERT INTO social (link, icon, status) VALUES (:link, :icon, :status)";
+    $prepare = $pdo->prepare($sql);
+    $prepare->execute(['link' => $link, 'icon' => $icon, 'status' => $status]);
+    return true;
+}
+
+function socialUpdate($id, $link, $icon, $status)
+{
+    global $pdo;
+    $sql = "Update social SET link = :link, icon = :icon, status = :status WHERE id = $id";
+    $prepare = $pdo->prepare($sql);
+    $prepare->execute(['link' => $link, 'icon' => $icon, 'status' => $status]);
+    return true;
+}
+
 function getSocialDelete($id)
 {
     global $pdo;
