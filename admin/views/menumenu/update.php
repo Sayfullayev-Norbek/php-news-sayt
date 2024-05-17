@@ -24,7 +24,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <form action="admin-controllers/menu-controller.php" method="GET">
+                <form action="?controller=menu_update&id=<?=$getMenuById['id']?>" method="POST">
                     <div class="form">
                         <div class="col my-4 mx-5">
                             <input type="text" name="title" value="<?=$getMenuById['title']?>" class="form-control" placeholder="Title (Menu)">

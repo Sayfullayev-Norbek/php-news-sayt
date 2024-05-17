@@ -56,15 +56,21 @@ function getAllMenus()
     }
 }
 
-function getMenuUpdate($id)
+function getMenuUpdate($id, $title, $parent_id, $order_by, $position, $status)
 {
     global $pdo;
-    $sql = 'Update menu Set id = :id';
+    $sql = "Update menu Set title= :title, parent_id = :parent_id, order_by = :order_by, position = :position, status = :status WHERE id = :id";
     $prepare = $pdo->prepare($sql);
+    $prepare->bindParam(':title', $title, PDO::PARAM_STR);
+    $prepare->bindParam(':id', $id, PDO::PARAM_INT);
+    $prepare->bindParam(':parent_id', $parent_id, PDO::PARAM_INT);
+    $prepare->bindParam(':order_by', $order_by, PDO::PARAM_INT);
+    $prepare->bindParam(':position', $position, PDO::PARAM_INT);
+    $prepare->bindParam(':status', $status, PDO::PARAM_INT);
     try {
-        $prepare->execute(['id'=>$id]);
+        $prepare->execute();
         return true;
-    }catch (PDOException $e){
+    } catch (PDOException $e){
         debug($e->getMessage(), 1);
     }
 }
