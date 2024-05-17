@@ -32,7 +32,7 @@
                     $status = !empty($_POST['status']) ? $_POST["status"] : "";
                     $SocialUpdate = socialUpdate($id, $link, $icon, $status);
                     if ($SocialUpdate == true){
-                        require_once "views/social/index.php";
+                        header("Location:?controller=link_index");exit();
                     }
                 }else{
                     require_once "views/social/updated.php";
@@ -42,10 +42,10 @@
                 if (!empty($_POST)){
                     $link = !empty($_POST['link']) ? $_POST["link"] : "";
                     $icon = !empty($_POST['icon']) ? $_POST["icon"] : "";
-                    $status = !empty($_POST['status']) ? $_POST["status"] : "";
+                    $status = $_POST["status"];
                     $SocialCreated = socialCreated($link, $icon, $status);
                     if ($SocialCreated == true){
-                        require_once "views/social/index.php";
+                        header("Location:?controller=link_index");exit();
                     }
                 }else{
                     require_once "views/social/created.php";
