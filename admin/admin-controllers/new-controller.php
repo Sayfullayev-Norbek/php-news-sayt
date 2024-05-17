@@ -14,24 +14,53 @@
                 if (!empty($getNews)){
                     require_once "views/news/index.php";
                 }
-                break;
+            break;
             case "new_read":
                 $getNewId = getNewId($id);
                 require_once "views/news/read.php";
-                break;
+            break;
             case "new_update":
                 $getNewId = getNewId($id);
-                require_once "views/news/updated.php";
-                break;
+                if (!empty($_POST)){
+                    $title = !empty($_POST['title']) ? $_POST['title'] : '';
+                    $description = !empty($_POST['description']) ? $_POST['description'] : '';
+                    $body = !empty($_POST['body']) ? $_POST['body'] : '';
+                    $category_id = !empty($_POST['category_id']) ? $_POST['category_id'] : '';
+                    $image = !empty($_POST['image']) ? $_POST['image'] : '';
+                    $status = !empty($_POST['status']) ? $_POST['status'] : '';
+                    $getNewUpdate = getNewUpdated($id, $title, $description, $body, $category_id, $image, $status);
+
+                    if($getNewUpdate == true){
+                        header("Location: ?controller=new_index");
+                    }
+                }else{
+                    require_once "views/news/updated.php";
+                }
+            break;
             case "new_delete":
                 $getNewDelete = getNewDelete($id);
                 if ($getNewDelete == true){
-                    require_once "views/news/index.php";
+                    header("Location: ?controller=new_index");
                 }
-                break;
+            break;
             case "news_created":
-                require_once "views/news/created.php";
-                break;
+                if (!empty($_POST)){
+                    $title = !empty($_POST['title']) ? $_POST['title'] : "";
+                    $description = !empty($_POST['description']) ? $_POST['description'] : "";
+                    $body = !empty($_POST['body']) ? $_POST['body'] : "";
+                    $category_id = !empty($_POST['category_id']) ? $_POST['category_id'] : "";
+                    $image = !empty($_POST['image']) ? $_POST['image'] : "";
+                    $status = isset($_POST['status']) ? $_POST['status'] : "";
+                    $newCreated = getNewCreated($title, $description, $body, $category_id, $image, $status);
+                    if ($newCreated == true){
+                        header("Location:?controller=new_index");exit();
+                    }else{
+                        header("Location:?controller=news_created");exit();
+                    }
+                }else{
+                    require_once 'views/news/created.php';
+                }
+            break;
         }
     }else{
         require_once "views/index.php";

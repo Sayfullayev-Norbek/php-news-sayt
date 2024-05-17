@@ -38,6 +38,49 @@ function getNewId($id)
     }
 }
 
+function getNewCreated($title, $description, $body, $category_id, $image, $status)
+{
+    global $pdo;
+    $sql = "INSERT INTO news (title, description, body, category_id, image, status) VALUES (:title, :description, :body, :category_id, :image, :status)";
+    $prepare = $pdo->prepare($sql);
+
+    $prepare->bindParam(':title', $title, PDO::PARAM_STR);
+    $prepare->bindParam(':description', $description, PDO::PARAM_STR);
+    $prepare->bindParam(':body', $body, PDO::PARAM_STR);
+    $prepare->bindParam(':category_id', $category_id, PDO::PARAM_INT);
+    $prepare->bindParam(':image', $image, PDO::PARAM_STR);
+    $prepare->bindParam(':status', $status, PDO::PARAM_STR);
+
+    try {
+        $prepare->execute();
+        return true;
+    } catch (PDOException $e){
+        debug($e->getMessage(), 1);
+    }
+}
+
+function getNewUpdated($id,$title, $description, $body, $category_id, $image, $status)
+{
+    global $pdo;
+    $sql = "UPDATE news SET title = :title, description = :description, body = :body, category_id = :category_id, image = :image, status = :status WHERE id = :id";
+    $prepare = $pdo->prepare($sql);
+
+    $prepare->bindParam(':title', $title, PDO::PARAM_STR);
+    $prepare->bindParam(':description', $description, PDO::PARAM_STR);
+    $prepare->bindParam(':id', $id,PDO::PARAM_INT);
+    $prepare->bindParam(':body', $body, PDO::PARAM_STR);
+    $prepare->bindParam(':category_id', $category_id, PDO::PARAM_INT);
+    $prepare->bindParam(':image', $image, PDO::PARAM_STR);
+    $prepare->bindParam(':status', $status, PDO::PARAM_STR);
+
+    try {
+        $prepare->execute();
+        return true;
+    } catch (PDOException $e){
+        debug($e->getMessage(), 1);
+    }
+}
+
 function getNewDelete($id)
 {
     global $pdo;

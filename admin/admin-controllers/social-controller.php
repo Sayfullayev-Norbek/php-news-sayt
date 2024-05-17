@@ -50,9 +50,11 @@
                 }else{
                     require_once "views/social/created.php";
                 }
-                break;
+            break;
 
-            default : require_once 'views/404.php'; break;
+            default:
+                require_once "views/404.php";
+            break;
         }
     }else{
         require_once "views/index.php";
