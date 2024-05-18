@@ -47,7 +47,7 @@
                                             <td><?=$getAllCategory["title"]?></td>
                                             <td><?=$getAllCategory["status"]?></td>
                                             <td>
-                                                <button type="submit" class="btn btn-primary"><a href="?controller=menu_update&id=<?=$getAllCategory["id"]?>"><i class="fas fa-pen" style="color: white"></i></a></button>
+                                                <button type="submit" class="btn btn-primary"><a href="?controller=category_update&id=<?=$getAllCategory["id"]?>"><i class="fas fa-pen" style="color: white"></i></a></button>
                                                 <button type="submit" class="btn btn-danger"><a href="?controller=menu_delete&id=<?=$getAllCategory["id"]?>"><i class="fas fa-trash" style="color: white"></i></a></button>
                                                 <button type="submit" class="btn btn-info"><a href="?controller=category_read&id=<?=$getAllCategory["id"]?>"><i class="fas fa-eye" style="color: white"></i></a></button>
                                             </td>

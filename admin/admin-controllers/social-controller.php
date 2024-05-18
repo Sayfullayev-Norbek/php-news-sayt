@@ -48,7 +48,7 @@
                         header("Location:?controller=link_index");exit();
                     }
                 }else{
-                    require_once "views/social/created.php";
+                    require_once "views/social/update.php";
                 }
             break;
         }

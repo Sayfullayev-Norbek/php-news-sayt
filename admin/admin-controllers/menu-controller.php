@@ -58,7 +58,7 @@
                         header("Location: ?controller=menu_created");
                     }
                 }else{
-                    require_once "views/menumenu/created.php";
+                    require_once "views/menumenu/update.php";
                 }
                 break;
         }

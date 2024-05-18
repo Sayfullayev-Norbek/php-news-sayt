@@ -57,7 +57,7 @@
                         header("Location:?controller=news_created");exit();
                     }
                 }else{
-                    require_once 'views/news/created.php';
+                    require_once 'views/news/update.php';
                 }
             break;
         }

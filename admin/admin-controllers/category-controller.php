@@ -19,6 +19,19 @@
                     require_once "views/category/read.php";
                 }
             break;
+            case "category_update":
+                $getCategoryId = getCategoryId($id);
+                if (!empty($_POST)) {
+                    $title = !empty($_POST['title']) ? $_POST['title'] : "";
+                    $status = !empty($_POST['status']) ? $_POST['status'] : "";
+                    $getCategoryUpdate = getCategoryUpdate($id, $title,$status);
+                    if ($getCategoryUpdate == true){
+                        header("Location: ?controller=category_index");
+                    }
+                }else{
+                    require_once "views/category/update.php";
+                }
+            break;
         }
     }else{
         require_once 'views/index.php';

@@ -39,4 +39,20 @@ function getCategoryId($id)
     }
 }
 
+function getCategoryUpdate($id, $title,$status)
+{
+    global $pdo;
+    $sql = "UPDATE category SET title = :title, status = :status WHERE id = :id";
+    $prepare = $pdo->prepare($sql);
+    $prepare->bindParam(':title', $title, PDO::PARAM_STR);
+    $prepare->bindParam(':id', $id, PDO::PARAM_INT);
+    $prepare->bindParam(':status', $status, PDO::PARAM_INT);
+    try {
+        $prepare->execute();
+        return true;
+    } catch (PDOException $e){
+        debug($e->getMessage(), 1);
+    }
+}
+
 ?>
