@@ -55,4 +55,19 @@ function getCategoryUpdate($id, $title,$status)
     }
 }
 
+function getCategoryCreate($title,$status)
+{
+    global $pdo;
+    $sql = "INSERT INTO category (title, status) VALUES (:title, :status)";
+    $prepare = $pdo->prepare($sql);
+    $prepare->bindParam(':title', $title, PDO::PARAM_STR);
+    $prepare->bindParam(':status', $status, PDO::PARAM_INT);
+    try {
+        $prepare->execute();
+        return true;
+    } catch (PDOException $e){
+        debug($e->getMessage(), 1);
+    }
+}
+
 ?>

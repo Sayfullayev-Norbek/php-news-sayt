@@ -28,7 +28,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="create-btn d-flex justify-content-end my-4">
-                                <a href="?controller=menu_created" class="btn btn-warning">Qo'shish</a>
+                                <a href="?controller=category_create" class="btn btn-warning">Qo'shish</a>
                             </div>
                             <table class="table table-bordered">
                                 <thead>

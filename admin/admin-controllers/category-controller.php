@@ -32,6 +32,20 @@
                     require_once "views/category/update.php";
                 }
             break;
+            case "category_create":
+                if(!empty($_POST)){
+                    $title = !empty($_POST['title']) ? $_POST['title'] : "";
+                    $status = !empty($_POST['status']) ? $_POST['status'] : "";
+                    $getCategoryCreate = getCategoryCreate($title,$status);
+                    if($getCategoryCreate == true){
+                        header("Location: ?controller=category_index");exit();
+                    }else{
+                        require_once "views/category/create.php";
+                    }
+                }else{
+                    require_once "views/category/create.php";
+                }
+            break;
         }
     }else{
         require_once 'views/index.php';
