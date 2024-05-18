@@ -41,15 +41,15 @@
                                 </thead>
                                 <tbody>
                                 <?php if(!empty($getAllCategories)): ?>
-                                    <?php foreach ($getAllCategories as $getAllCategor): ?>
+                                    <?php foreach ($getAllCategories as $getAllCategory): ?>
                                         <tr>
                                             <th scope="row">#</th>
-                                            <td><?=$getAllCategor["title"]?></td>
-                                            <td><?=$getAllCategor["status"]?></td>
+                                            <td><?=$getAllCategory["title"]?></td>
+                                            <td><?=$getAllCategory["status"]?></td>
                                             <td>
-                                                <button type="submit" class="btn btn-primary"><a href="?controller=menu_update&id=<?=$getAllCategor["id"]?>"><i class="fas fa-pen" style="color: white"></i></a></button>
-                                                <button type="submit" class="btn btn-danger"><a href="?controller=menu_delete&id=<?=$getAllCategor["id"]?>"><i class="fas fa-trash" style="color: white"></i></a></button>
-                                                <button type="submit" class="btn btn-info"><a href="?controller=menu_read&id=<?=$getAllCategor['id']?>"><i class="fas fa-eye" style="color: white"></i></a></button>
+                                                <button type="submit" class="btn btn-primary"><a href="?controller=menu_update&id=<?=$getAllCategory["id"]?>"><i class="fas fa-pen" style="color: white"></i></a></button>
+                                                <button type="submit" class="btn btn-danger"><a href="?controller=menu_delete&id=<?=$getAllCategory["id"]?>"><i class="fas fa-trash" style="color: white"></i></a></button>
+                                                <button type="submit" class="btn btn-info"><a href="?controller=category_read&id=<?=$getAllCategory["id"]?>"><i class="fas fa-eye" style="color: white"></i></a></button>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

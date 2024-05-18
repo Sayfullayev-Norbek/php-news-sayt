@@ -16,7 +16,7 @@
                 break;
             case "link_read":
                 $getlink = getSocial($id);
-                    require_once "views/social/read.php";
+                require_once "views/social/read.php";
                 break;
             case "link_delete":
                 $getlinkDelete = getSocialDelete($id);
@@ -50,10 +50,6 @@
                 }else{
                     require_once "views/social/created.php";
                 }
-            break;
-
-            default:
-                require_once "views/404.php";
             break;
         }
     }else{
