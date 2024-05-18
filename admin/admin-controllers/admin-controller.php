@@ -4,7 +4,7 @@
 
 <?php require_once "new-controller.php"; ?>
 <?php require_once "menu-controller.php"; ?>
-
+<?php require_once "category-controller.php"; ?>
 <!--Social eng oxirida tursin default shunda yozilgan.-->
 <?php require_once "social-controller.php"; ?>
 

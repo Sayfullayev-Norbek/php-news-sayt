@@ -13,3 +13,15 @@ function getCategoryById($id)
         debug($e->getMessage(), 1);
     }
 }
+
+function getAllCategories(){
+    global $pdo;
+    $sql = "SELECT * FROM category";
+    $prepare = $pdo->prepare($sql);
+    try {
+        $prepare->execute();
+        return $prepare->fetchAll(PDO::FETCH_ASSOC);
+    }catch (PDOException $e){
+        debug($e->getMessage(), 1);
+    }
+}
