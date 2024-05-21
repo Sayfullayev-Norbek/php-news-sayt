@@ -49,16 +49,16 @@
                     $body = !empty($_POST['body']) ? $_POST['body'] : "";
                     $category_id = !empty($_POST['category_id']) ? $_POST['category_id'] : "";
                     $image = !empty($_POST['image']) ? $_POST['image'] : "";
-                    $status = isset($_POST['status']) ? $_POST['status'] : "";
-                    $newCreated = getNewCreated($title, $description, $body, $category_id, $image, $status);
+                    $created_date = !empty($_POST['created_date']) ? $_POST['created_date'] : "";
+                    $status = !empty($_POST['status']) ? $_POST['status'] : "";
+                    $newCreated = getNewCreated($title, $description, $body, $created_date, $category_id, $image, $status);
                     if ($newCreated == true){
                         header("Location:?controller=new_index");exit();
-                    }else{
-                        header("Location:?controller=news_created");exit();
                     }
-                }else{
-                    require_once 'views/news/update.php';
                 }
+                $categories = getAllCategories();
+                require_once 'views/news/created.php';
+
             break;
         }
     }else{

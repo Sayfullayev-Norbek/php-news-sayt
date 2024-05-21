@@ -23,32 +23,53 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <div class="row">
-                <form action="?controller=news_created" method="POST">
-                    <div class="form">
-                        <div class="col my-4 mx-5">
-                            <input type="text" name="title" class="form-control" placeholder="Title (News)">
-                        </div>
-                        <div class="col my-4 mx-5">
-                            <input type="text" name="description" class="form-control" placeholder="Description (News)">
-                        </div>
-                        <div class="col my-4 mx-5">
-                            <input type="text" name="body" class="form-control" placeholder="Body (News)">
-                        </div>
-                        <div class="col my-4 mx-5">
-                            <input type="number" name="category_id" class="form-control" placeholder="Category ID (News)">
-                        </div>
-                        <div class="col my-4 mx-5">
-                            <input type="text" name="image"  class="form-control" placeholder="Image (News)">
-                        </div>
-                        <div class="col my-4 mx-5">
-                            <input type="number" name="status"  class="form-control" placeholder="Status (News)">
+            <form action="?controller=news_created" method="POST">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <label for="" class="w-100"> Title
+                                    <input type="text" name="title" class="form-control" required>
+                                </label>
+                                <label for="" class="w-100"> Description
+                                    <input type="text" name="description" class="form-control">
+                                </label>
+                                <label for="" class="w-100"> Body
+                                    <textarea cols="30" rows="10" name="body" class="form-control"></textarea>
+                                </label>
+                            </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary my-4 mx-5">Yangilash</button>
-                </form>
-
-            </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <label for="" class="w-100"> Image
+                                    <input type="text" name="image" class="form-control">
+                                </label>
+                                <label for="" class="w-100"> Created Date
+                                    <input type="datetime-local" name="created_date" class="form-control">
+                                </label>
+                                <label for="" class="w-100"> Pasition
+                                    <select name="category_id" class="form-control">
+                                        <?php if(!empty($categories)): ?>
+                                            <?php foreach ($categories as $category): ?>
+                                                <option value="<?=$category['id']?>"><?=$category['title']?></option>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </select>
+                                </label>
+                                <label for="" class="w-100">Status
+                                    <select name="status" class="form-control">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary my-4 mx-5">Yuborish</button>
+                </div>
+            </form>
         </div><!--/. container-fluid -->
     </section>
     <!-- /.content -->

@@ -23,30 +23,52 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                <div class="row">
-                    <form action="?controller=menu_created" method="POST">
-                        <div class="form">
-                            <div class="col my-4 mx-5">
-                                <input type="text" name="title" class="form-control" placeholder="Title (Menu)">
+                <form action="?controller=menu_created" method="POST">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="card">
+                                <div class="card-body">
+                                    <label for="" class="w-100"> Title
+                                        <input type="text" name="title" class="form-control" required>
+                                    </label>
+                                    <label for="" class="w-100"> Parent ID
+                                        <select name="parent_id" class="form-control">
+                                            <?php if(!empty($getMenuById)): ?>
+                                                <?php foreach ($getMenuById as $getMenu): ?>
+                                                    <option value="<?=$getMenu['id']?>"><?=$getMenu['title']?></option>
+                                                <?php endforeach; ?>
+                                            <?php endif; ?>
+                                        </select>
+                                    </label>
+                                    <label for="" class="w-100"> order_by
+                                        <input type="number" name="order_by" class="form-control">
+                                    </label>
+                                </div>
                             </div>
-                            <div class="col my-4 mx-5">
-                                <input type="number" name="parent_id" class="form-control" placeholder="Parent ID (Menu)">
-                            </div>
-                            <div class="col my-4 mx-5">
-                                <input type="number" name="order_by" class="form-control" placeholder="Order_by (Menu)">
-                            </div>
-                            <div class="col my-4 mx-5">
-                                <input type="number" name="position" class="form-control" placeholder="Position (Menu)">
-                            </div>
-                            <div class="col my-4 mx-5">
-                                <input type="number" name="status"  class="form-control" placeholder="Status (Menu)">
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <label for="" class="w-100"> position
+                                        <input type="number" name="position" class="form-control">
+                                    </label>
+                                    <label for="" class="w-100"> Created Date
+                                        <input type="datetime-local" name="created_date" class="form-control">
+                                    </label>
+                                    <label for="" class="w-100">Status
+                                        <select name="status" class="form-control">
+                                            <option value="0">0</option>
+                                            <option value="1">1</option>
+                                        </select>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary my-4 mx-5">Yuborish</button>
-                    </form>
-
-                </div>
-            </div><!--/. container-fluid -->
+                    </div>
+                </form>
+            </div>
+            <!--/. container-fluid -->
         </section>
         <!-- /.content -->
     </div>

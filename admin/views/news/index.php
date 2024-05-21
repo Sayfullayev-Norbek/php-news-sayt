@@ -45,12 +45,13 @@
                                 <tbody>
                                 <?php if(!empty($getNews)): ?>
                                     <?php foreach ($getNews as $getNew): ?>
+                                    <?php    $getCategory= getCategoryId($getNew["category_id"]);     ?>
                                         <tr>
                                             <th scope="row">#</th>
                                             <td class="col-7"><?=$getNew["title"]?></td>
                                             <td><?=$getNew["status"]?></td>
                                             <td><?=$getNew["seen_count"]?></td>
-                                            <td><?=$getNew["category_id"]?></td>
+                                            <td><?=$getCategory['title']?></td>
                                             <td>
                                                 <button type="submit" class="btn btn-primary"><a href="?controller=new_update&id=<?=$getNew["id"]?>"><i class="fas fa-pen" style="color: white"></i></a></button>
                                                 <button type="submit" class="btn btn-danger"><a href="?controller=new_delete&id=<?=$getNew["id"]?>"><i class="fas fa-trash" style="color: white"></i></a></button>

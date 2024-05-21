@@ -44,10 +44,11 @@
                                 <tbody>
                                     <?php if(!empty($getAllMenus)): ?>
                                         <?php foreach ($getAllMenus as $getAllMenu): ?>
+                                        <?php $getMenuById = getMenuById($getAllMenu['id']); ?>
                                             <tr>
                                                 <th scope="row">#</th>
                                                 <td><?=$getAllMenu["title"]?></td>
-                                                <td><?=$getAllMenu["parent_id"]?></td>
+                                                <td><?=$getMenuById["parent_id"]?></td>
                                                 <td><?=$getAllMenu["position"]?></td>
                                                 <td><?=$getAllMenu["status"]?></td>
                                                 <td>

@@ -19,7 +19,7 @@
             case "menu_delete":
                 $getMenuDelete = getMenuDelete($id);
                 if ($getMenuDelete == true) {
-                    header("Location: ?controller=new_index");
+                    header("Location: ?controller=menu_index");
                 }
                 break;
             case "menu_read":
@@ -47,9 +47,9 @@
             case "menu_created":
                 if(!empty($_POST)){
                     $title = !empty($_POST['title']) ? $_POST['title'] : "";
-                    $parent_id = !empty($_POST['$parent_id']) ? $_POST['$parent_id'] : "";
+                    $parent_id = $_POST['parent_id'];
                     $order_by = !empty($_POST['order_by']) ? $_POST['order_by'] : "";
-                    $position = !empty($_POST['$position']) ? $_POST['$position'] : "";
+                    $position = !empty($_POST['position']) ? $_POST['position'] : "";
                     $status = !empty($_POST['status']) ? $_POST['status'] : "";
                     $getMenuCreated = getMenuCreated($title,$parent_id,$order_by,$position,$status);
                     if($getMenuCreated == true){
@@ -57,9 +57,9 @@
                     }else{
                         header("Location: ?controller=menu_created");
                     }
-                }else{
-                    require_once "views/menumenu/update.php";
                 }
+                $getMenuById = getAllMenus();
+                require_once "views/menumenu/created.php";
                 break;
         }
     }else{
