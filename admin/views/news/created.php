@@ -23,7 +23,7 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <form action="?controller=news_created" method="POST">
+            <form action="?controller=news_created" method="POST" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="card">
@@ -43,8 +43,10 @@
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body">
-                                <label for="" class="w-100"> Image
-                                    <input type="text" name="image" class="form-control">
+                                <label for="image" class="w-100"> Image
+                                    <?php  $image = getImage('news',0 ,'image.png') ?>
+                                    <img src="<?=$image?>" alt="Image" style="width: 250px; object-fit: cover; cursor: pointer; border-radius: 10px">
+                                    <input style="display: none" type="file" name="image" class="form-control upload" id="image">
                                 </label>
                                 <label for="" class="w-100"> Created Date
                                     <input type="datetime-local" name="created_date" class="form-control">

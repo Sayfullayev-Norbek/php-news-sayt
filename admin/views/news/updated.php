@@ -24,7 +24,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <form action="?controller=new_update&id=<?=$getNewId['id']?>" method="POST">
+                <form action="?controller=new_update&id=<?=$getNewId['id']?>" method="POST" enctype="multipart/form-data">
                     <div class="form">
                         <div class="col my-4 mx-5">
                             <input type="text" name="title" value="<?=$getNewId['title']?>" class="form-control" placeholder="Title (News)">
@@ -38,9 +38,11 @@
                         <div class="col my-4 mx-5">
                             <input type="number" name="category_id" value="<?=$getNewId['category_id']?>" class="form-control" placeholder="Category ID (News)">
                         </div>
-                        <div class="col my-4 mx-5">
-                            <input type="text" name="image" value="<?=$getNewId['image']?>"  class="form-control" placeholder="Image (News)">
-                        </div>
+                        <label for="image" class="w-100">Rasm
+                            <?php  $image = getImageUpdate('news', $getNewId['id'], $getNewId['image']) ?>
+                            <img src="<?=$image?>" alt="Image" style="width: 250px; object-fit: cover; cursor: pointer; border-radius: 10px">
+                            <input style="display: none" type="file" name="image" class="form-control upload" id="image">
+                        </label>
                         <div class="col my-4 mx-5">
                             <input type="number" name="status" value="<?=$getNewId['status']?>"  class="form-control" placeholder="Status (News)">
                         </div>

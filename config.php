@@ -13,3 +13,5 @@
         echo "Connection failed: " . $e->getMessage();
     }
 
+    const UPLOADS = "/upload";
+

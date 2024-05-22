@@ -30,7 +30,9 @@
 
 <!-- AdminLTE for demo purposes -->
 <script src="assets/plugins/js/demo.js"></script>
+
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="assets/plugins/js/pages/dashboard2.js"></script>
+<script src="assets/plugins/js/custom.js"></script>
 </body>
 </html>

@@ -6,9 +6,11 @@
         $id = $_GET['id'];
         switch ($controller){
             case "news_view":
-                $model = getNewsById($id);
                 $update = update_seen_count($id);
-                require_once 'views/view.php';
+                if ($update){
+                    $model = getNewsById($id);
+                    require_once 'views/view.php';
+                }
             break;
             case "view_category":
                 $models = getCategoryBy($id);

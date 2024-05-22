@@ -38,10 +38,10 @@ function getNewId($id)
     }
 }
 
-function getNewCreated($title, $description, $body, $created_date, $category_id, $image, $status)
+function getNewCreated($title, $description, $body, $created_date, $category_id, $status)
 {
     global $pdo;
-    $sql = "INSERT INTO news (title, description, body, created_date, category_id, image, status) VALUES (:title, :description, :body, :created_date, :category_id, :image, :status)";
+    $sql = "INSERT INTO news (title, description, body, created_date, category_id, status) VALUES (:title, :description, :body, :created_date, :category_id, :status)";
     $prepare = $pdo->prepare($sql);
 
     $prepare->bindValue(':title', $title, PDO::PARAM_STR);
@@ -49,9 +49,23 @@ function getNewCreated($title, $description, $body, $created_date, $category_id,
     $prepare->bindValue(':body', $body, PDO::PARAM_STR);
     $prepare->bindValue(':created_date',  date("Y-m-d H:i:s",strtotime($created_date)), PDO::PARAM_STR);
     $prepare->bindValue(':category_id', $category_id, PDO::PARAM_INT);
-    $prepare->bindValue(':image', $image, PDO::PARAM_STR);
     $prepare->bindValue(':status', $status, PDO::PARAM_STR);
 
+    try {
+        $prepare->execute();
+        return $pdo->lastInsertId();
+    } catch (PDOException $e){
+        debug($e->getMessage(), 1);
+    }
+}
+
+function insertImage($fileName,$lastId)
+{
+    global $pdo;
+    $sql = "UPDATE news SET image=:image WHERE id=:id";
+    $prepare = $pdo->prepare($sql);
+    $prepare->bindValue(':image', $fileName, PDO::PARAM_STR);
+    $prepare->bindValue(':id', $lastId, PDO::PARAM_INT);
     try {
         $prepare->execute();
         return true;
@@ -60,10 +74,10 @@ function getNewCreated($title, $description, $body, $created_date, $category_id,
     }
 }
 
-function getNewUpdated($id,$title, $description, $body, $category_id, $image, $status)
+function getNewUpdated($id,$title, $description, $body, $category_id, $status)
 {
     global $pdo;
-    $sql = "UPDATE news SET title = :title, description = :description, body = :body, category_id = :category_id, image = :image, status = :status WHERE id = :id";
+    $sql = "UPDATE news SET title = :title, description = :description, body = :body, category_id = :category_id, status = :status WHERE id = :id";
     $prepare = $pdo->prepare($sql);
 
     $prepare->bindParam(':title', $title, PDO::PARAM_STR);
@@ -71,7 +85,6 @@ function getNewUpdated($id,$title, $description, $body, $category_id, $image, $s
     $prepare->bindParam(':id', $id,PDO::PARAM_INT);
     $prepare->bindParam(':body', $body, PDO::PARAM_STR);
     $prepare->bindParam(':category_id', $category_id, PDO::PARAM_INT);
-    $prepare->bindParam(':image', $image, PDO::PARAM_STR);
     $prepare->bindParam(':status', $status, PDO::PARAM_STR);
 
     try {

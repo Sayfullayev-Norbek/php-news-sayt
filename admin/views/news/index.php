@@ -44,10 +44,10 @@
 
                                 <tbody>
                                 <?php if(!empty($getNews)): ?>
-                                    <?php foreach ($getNews as $getNew): ?>
+                                    <?php $i=1; foreach ($getNews as $getNew): ?>
                                     <?php    $getCategory= getCategoryId($getNew["category_id"]);     ?>
                                         <tr>
-                                            <th scope="row">#</th>
+                                            <th scope="row"><?=$i++?></th>
                                             <td class="col-7"><?=$getNew["title"]?></td>
                                             <td><?=$getNew["status"]?></td>
                                             <td><?=$getNew["seen_count"]?></td>
